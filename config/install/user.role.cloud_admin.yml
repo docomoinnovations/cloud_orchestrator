@@ -1,0 +1,50 @@
+uuid: b552991b-3f4c-4ea6-a783-b993c462c62f
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: FO4YXYKSZ_XnPJzIaaROKPAY6oM_61pfK1bl4rFl9u4
+id: cloud_admin
+label: 'Cloud administrator'
+weight: -9
+is_admin: false
+permissions:
+  - 'access cloud server template revisions'
+  - 'add cloud config entities'
+  - 'administer cloud config entities'
+  - 'delete all cloud config revisions'
+  - 'delete all cloud server template revisions'
+  - 'delete any aws cloud image'
+  - 'delete any aws cloud instance'
+  - 'delete any aws cloud snapshot'
+  - 'delete any aws cloud subnet'
+  - 'delete any aws cloud volume'
+  - 'delete any aws cloud vpc'
+  - 'delete any cloud server template entities'
+  - 'delete cloud config entities'
+  - 'edit any aws cloud image'
+  - 'edit any aws cloud instance'
+  - 'edit any aws cloud snapshot'
+  - 'edit any aws cloud subnet'
+  - 'edit any aws cloud volume'
+  - 'edit any aws cloud vpc'
+  - 'edit any cloud server template entities'
+  - 'edit aws cloud elastic ip'
+  - 'edit aws cloud key pair'
+  - 'edit aws cloud network interface'
+  - 'edit aws cloud provider'
+  - 'edit aws cloud security group'
+  - 'edit cloud config entities'
+  - 'revert all cloud config revisions'
+  - 'revert all cloud server template revisions'
+  - 'view all cloud config revisions'
+  - 'view any aws cloud image'
+  - 'view any aws cloud instance'
+  - 'view any aws cloud snapshot'
+  - 'view any aws cloud subnet'
+  - 'view any aws cloud vpc'
+  - 'view any published cloud server template entities'
+  - 'view any unpublished cloud server template entities'
+  - 'view own unpublished cloud config entities'
+  - 'view published cloud config entities'
+  - 'view unpublished cloud config entities'

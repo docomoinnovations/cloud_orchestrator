@@ -1,0 +1,42 @@
+uuid: 87b27f9f-cb4f-4fcd-ac94-90a998839536
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: FrsCRWCj4vtlUSSnAveN5L2PepJlgDbOfLQ4k2IVG-k
+id: cloud_operator
+label: 'Cloud operator'
+weight: -9
+is_admin: false
+permissions:
+  - 'access cloud server template revisions'
+  - 'delete any aws cloud image'
+  - 'delete any aws cloud instance'
+  - 'delete any aws cloud snapshot'
+  - 'delete any aws cloud subnet'
+  - 'delete any aws cloud volume'
+  - 'delete any aws cloud vpc'
+  - 'delete any cloud server template entities'
+  - 'edit any aws cloud image'
+  - 'edit any aws cloud instance'
+  - 'edit any aws cloud snapshot'
+  - 'edit any aws cloud subnet'
+  - 'edit any aws cloud volume'
+  - 'edit any aws cloud vpc'
+  - 'edit any cloud server template entities'
+  - 'edit aws cloud elastic ip'
+  - 'edit aws cloud key pair'
+  - 'edit aws cloud network interface'
+  - 'edit aws cloud provider'
+  - 'edit aws cloud security group'
+  - 'revert all cloud config revisions'
+  - 'revert all cloud server template revisions'
+  - 'view any aws cloud image'
+  - 'view any aws cloud instance'
+  - 'view any aws cloud snapshot'
+  - 'view any aws cloud subnet'
+  - 'view any aws cloud volume'
+  - 'view any aws cloud vpc'
+  - 'view any published cloud server template entities'
+  - 'view any unpublished cloud server template entities'
+  - 'view own unpublished cloud config entities'

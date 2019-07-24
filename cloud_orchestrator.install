@@ -1,0 +1,18 @@
+<?php
+
+use Drupal\user\Entity\User;
+
+/**
+ * Implements hook_install().
+ *
+ * Perform actions to set up the cloud_orchestrator profile.
+ */
+function cloud_orchestrator_install() {
+  // Assign user 1 the "administrator" role.
+  $user = User::load(1);
+  $user->roles[] = 'administrator';
+  $user->save();
+
+  // After profile install, go to cloud_config to setup some profiles.
+//  install_goto('admin/structure/cloud_config');
+}
