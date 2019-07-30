@@ -47,6 +47,7 @@
     }
   },
   "require": {
+    "aws/aws-sdk-php": "3.*.*@dev",
     "composer/installers": "^1.0",
     "drupal/admin_toolbar": "^1.27",
     "drupal/module_filter": "^3.1",
@@ -56,7 +57,9 @@
     "drupal/login_destination": "^1.0@alpha",
     "drupal/authorization": "^1.0@beta",
     "drupal/externalauth": "^1.1",
-    "drupal/bootstrap": "^3.20"
+    "drupal/bootstrap": "^3.20",
+    "drush/drush": "^8",
+    "google/apiclient": "^2.2.3"
   },
   "require-dev": {
     "drupal/console": "~1.0"

@@ -13,6 +13,7 @@ function cloud_orchestrator_install() {
   $user->roles[] = 'administrator';
   $user->save();
 
-  // After profile install, go to cloud_config to setup some profiles.
-//  install_goto('admin/structure/cloud_config');
+  // We install some menu links, so we have to rebuild the router, to ensure the
+  // menu links are valid.
+  \Drupal::service('router.builder')->rebuildIfNeeded();
 }

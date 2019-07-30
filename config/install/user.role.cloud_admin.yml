@@ -1,9 +1,6 @@
-uuid: b552991b-3f4c-4ea6-a783-b993c462c62f
 langcode: en
 status: true
 dependencies: {  }
-_core:
-  default_config_hash: FO4YXYKSZ_XnPJzIaaROKPAY6oM_61pfK1bl4rFl9u4
 id: cloud_admin
 label: 'Cloud administrator'
 weight: -9
@@ -45,6 +42,7 @@ permissions:
   - 'view any aws cloud vpc'
   - 'view any published cloud server template entities'
   - 'view any unpublished cloud server template entities'
+  - 'view cloud config admin list'
   - 'view own unpublished cloud config entities'
   - 'view published cloud config entities'
   - 'view unpublished cloud config entities'

@@ -1,0 +1,3 @@
+cloud.admin.menu:
+  title: 'Administer cloud service providers'
+  route_name: 'view.cloud_config.admin'

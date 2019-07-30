@@ -9,7 +9,7 @@ use Drupal\Core\Form\FormStateInterface;
  */
 function cloud_orchestrator_form_install_configure_form_alter(&$form, FormStateInterface $form_state) {
   // Add a placeholder as example that one can choose an arbitrary site name.
-  $form['site_information']['site_name']['#attributes']['placeholder'] = t('Cloud Orchestrator');
+  $form['site_information']['site_name']['#default_value'] = t('Cloud Orchestrator');
 
   // user 1's account name
 //  $form['admin_account']['account']['name']['#default_value'] = 'super_admin';

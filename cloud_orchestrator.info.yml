@@ -24,7 +24,6 @@ install:
   - node
   - options
   - path
-  - pathauto
   - page_cache
   - text
   - dblog
