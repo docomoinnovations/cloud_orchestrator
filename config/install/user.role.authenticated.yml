@@ -1,6 +1,9 @@
+uuid: d40d26bf-39a3-404e-bd47-3490adaf3155
 langcode: en
 status: true
 dependencies: {  }
+_core:
+  default_config_hash: v4oiY69zF6y3W1jD2QmUGeLzPYKf5C266IaiSJoW95s
 id: authenticated
 label: 'Authenticated user'
 weight: -9
@@ -50,6 +53,7 @@ permissions:
   - 'list aws cloud volume'
   - 'list aws cloud vpc'
   - 'list cloud server template'
+  - 'use text format basic_html'
   - 'view all cloud config entities'
   - 'view any aws cloud volume'
   - 'view aws cloud elastic ip'

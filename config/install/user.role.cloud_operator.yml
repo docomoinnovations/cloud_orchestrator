@@ -3,13 +3,14 @@ langcode: en
 status: true
 dependencies: {  }
 _core:
-  default_config_hash: FrsCRWCj4vtlUSSnAveN5L2PepJlgDbOfLQ4k2IVG-k
+  default_config_hash: emaCv-JQ8uuDjU0T8geC5FVeJwPONNoymRdefmK7KTs
 id: cloud_operator
 label: 'Cloud operator'
 weight: -9
 is_admin: false
 permissions:
   - 'access cloud server template revisions'
+  - 'access content'
   - 'delete any aws cloud image'
   - 'delete any aws cloud instance'
   - 'delete any aws cloud snapshot'

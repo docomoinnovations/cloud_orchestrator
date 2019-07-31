@@ -1,0 +1,8 @@
+title: 'Welcome to Cloud Orchestrator'
+body:
+  value: >
+    This is the welcome page. We will need to add more text to this page.  This is placeholder text.
+    For starters, add a new <a href="/admin/structure/cloud_config">Cloud Config.</a>
+  format: 'basic_html'
+path: '/welcome'
+type: 'page'

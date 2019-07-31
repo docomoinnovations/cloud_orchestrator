@@ -33,7 +33,7 @@ class ModuleConfigureForm extends ConfigFormBase {
     $form['install_ldap'] = [
       '#type' => 'checkbox',
       '#title' => $this->t('Install LDAP modules'),
-      '#description' => $this->t('Use LDAP to authenticate uses with Active Directory.  LDAP can also be installed at a later time.'),
+      '#description' => $this->t('Install LDAP to authenticate with Active Directory.  LDAP can also be installed at a later time.'),
     ];
 
     $form['actions']['submit']['#value'] = $this->t('Save and continue');

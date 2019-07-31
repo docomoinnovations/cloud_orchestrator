@@ -2,13 +2,14 @@ name: Cloud Orchestrator
 type: profile
 core: 8.x
 project: cloud_orchestrator
-description: 'Cloud orchestration based Drupal distribution.'
+description: 'Cloud Orchestrator Drupal distribution.'
 version: 8.x-1.x-dev
 distribution:
   name: Cloud Orchestrator
   install:
     theme: seven
 install:
+  - node
   - block_content
   - ckeditor
   - config
@@ -38,17 +39,9 @@ install:
   - module_filter
   - aws_cloud
   - copyright_footer
-#  - ldap_user
-#  - ldap_servers
-#  - ldap_authorization
-#  - ldap_query
-#  - ldap_authorization
-#  - ldap_authentication
   - login_destination
-#  - authorization
-#  - externalauth
-#  - token
   - ctools
+  - tour
 themes:
   - bartik
   - seven

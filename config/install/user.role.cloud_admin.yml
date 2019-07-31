@@ -1,12 +1,16 @@
+uuid: 322ee3bf-1cf2-444e-b5ef-e4d01971428c
 langcode: en
 status: true
 dependencies: {  }
+_core:
+  default_config_hash: 9sbS5Cq8j4oir9LdTcegMJU0V-VdYX6m1W3VKOMomGI
 id: cloud_admin
 label: 'Cloud administrator'
 weight: -9
 is_admin: false
 permissions:
   - 'access cloud server template revisions'
+  - 'access content'
   - 'add cloud config entities'
   - 'administer cloud config entities'
   - 'delete all cloud config revisions'

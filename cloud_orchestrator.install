@@ -1,6 +1,43 @@
 <?php
 
 use Drupal\user\Entity\User;
+use Drupal\Core\StreamWrapper\PrivateStream;
+use Drupal\Component\Serialization\Yaml;
+
+/**
+ * Implements hook_requirements().
+ */
+function cloud_orchestrator_requirements($phase) {
+  $requirements = [];
+  if ($phase == 'install') {
+    if (!PrivateStream::basePath()) {
+      $requirements['private file stream'] = [
+        'title' => t('Private file directory not set'),
+        'description' => t('The file_private_path needs to be set in settings.php.  It needs to be writable by the web server.'),
+        'severity' => REQUIREMENT_ERROR,
+      ];
+    }
+    else {
+      $directory = PrivateStream::basePath();
+      $is_writeable = is_writable($directory);
+      $is_directory = is_dir($directory);
+      if (!$is_writeable || !$is_directory) {
+        if (!$is_directory) {
+          $error = t('The directory %directory does not exist.', ['%directory' => $directory]);
+        }
+        else {
+          $error = t('The directory %directory is not writable.', ['%directory' => $directory]);
+        }
+        $requirements['private file stream'] = [
+          'title' => t('Not writable'),
+          'description' => $error,
+          'severity' => REQUIREMENT_ERROR,
+        ];
+      }
+    }
+  }
+  return $requirements;
+}
 
 /**
  * Implements hook_install().
@@ -13,7 +50,36 @@ function cloud_orchestrator_install() {
   $user->roles[] = 'administrator';
   $user->save();
 
+  // Import default content.
+  cloud_orchestrator_import_content();
+
+  // Set the homepage
+  \Drupal::configFactory()->getEditable('system.site')->set('page.front', '/welcome')->save(TRUE);
+
   // We install some menu links, so we have to rebuild the router, to ensure the
   // menu links are valid.
   \Drupal::service('router.builder')->rebuildIfNeeded();
+}
+
+/**
+ * Import default content into the site.
+ */
+function cloud_orchestrator_import_content() {
+  $files = [
+    'welcome_page.yml',
+  ];
+  $path = \Drupal::moduleHandler()->getModule('cloud_orchestrator')->getPath();
+  foreach ($files as $file) {
+    $content_path = $path . '/default_content/' . $file;
+    if (file_exists($content_path) && ($handle = fopen($content_path, 'r')) !== FALSE) {
+      $contents = fread($handle, filesize($content_path));
+      if (!empty($contents)) {
+        $data = Yaml::decode($contents);
+        $entity = \Drupal::entityTypeManager()
+          ->getStorage('node')
+          ->create($data);
+        $entity->save();
+      }
+    }
+  }
 }

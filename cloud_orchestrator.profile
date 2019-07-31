@@ -50,7 +50,7 @@ function cloud_orchestrator_install_tasks_alter(array &$tasks, array $install_st
 
 function cloud_orchestrator_after_install_finished(array &$install_state) {
   global $base_url;
-  $add_cloud_config_url = $base_url . '/admin/structure/cloud_config';
+  $add_cloud_config_url = $base_url . '/welcome';
   install_finished($install_state);
 
   $output = [];
