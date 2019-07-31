@@ -1,8 +1,9 @@
 <?php
 
-use Drupal\user\Entity\User;
-use Drupal\Core\StreamWrapper\PrivateStream;
 use Drupal\Component\Serialization\Yaml;
+use Drupal\Core\StreamWrapper\PrivateStream;
+use Drupal\user\Entity\User;
+use Drupal\user\RoleInterface;
 
 /**
  * Implements hook_requirements().
@@ -56,6 +57,8 @@ function cloud_orchestrator_install() {
   // Set the homepage
   \Drupal::configFactory()->getEditable('system.site')->set('page.front', '/welcome')->save(TRUE);
 
+  // Remove access content from Anonymous user
+  user_role_revoke_permissions(RoleInterface::ANONYMOUS_ID, ['access content']);
   // We install some menu links, so we have to rebuild the router, to ensure the
   // menu links are valid.
   \Drupal::service('router.builder')->rebuildIfNeeded();
