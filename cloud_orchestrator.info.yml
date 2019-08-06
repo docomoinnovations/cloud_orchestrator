@@ -44,5 +44,6 @@ install:
   - cloud_orchestrator_tour
 themes:
   - seven
+  - bartik
   - bootstrap
   - bootstrap_cloud
