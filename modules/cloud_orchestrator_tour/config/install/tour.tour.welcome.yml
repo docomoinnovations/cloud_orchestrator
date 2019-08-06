@@ -1,0 +1,48 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - cloud_orchestrator_tour
+id: welcome
+label: welcome
+module: cloud_orchestrator_tour
+routes:
+  -
+    route_name: entity.node.canonical
+    route_params:
+      node: 1
+tips:
+  introduction:
+    id: introduction
+    plugin: text
+    label: Welcome
+    weight: -100
+    attributes: null
+    body: 'Welcome to Cloud Orchestrator!  Use it to manage your cloud infrastructure.'
+    location: top
+  add-a-cloud-service-provider:
+    id: add-a-cloud-service-provider
+    plugin: text
+    label: 'Cloud Service Provider'
+    weight: -100
+    attributes:
+      data-class: 'menu--tools a[href="/admin/structure/cloud_config"]'
+    body: 'Start by adding a cloud service provider.'
+    location: bottom
+  add-a-server-template:
+    id: add-a-server-template
+    plugin: text
+    label: 'Server Template'
+    weight: -100
+    attributes:
+      data-class: 'menu--tools a[href="/clouds/design"]'
+    body: "Add a server template.\r\n<p>A server template contains all launch parameters for creating an instance.\r\nIt can be reused to launch instances at any time.\r\n</p>"
+    location: bottom
+  finish:
+    id: finish
+    plugin: text
+    label: 'Launch Instances'
+    weight: -100
+    attributes: null
+    body: "You are ready to launch and manage instances!\r\n<p>\r\n<a href=\"/admin/structure/cloud_config/add/aws_ec2?tour=1\" class=\"button button--primary\">Add Cloud Service Provider</a>\r\n</p>"
+    location: top

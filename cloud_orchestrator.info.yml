@@ -43,6 +43,5 @@ install:
   - ctools
   - cloud_orchestrator_tour
 themes:
-  - bartik
   - seven
-  - bootstrap
+  - bootstrap_cloud

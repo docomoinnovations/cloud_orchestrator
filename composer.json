@@ -66,6 +66,7 @@
     "drupal/bootstrap": "^3.20",
     "drupal/cloud_orchestrator": "1.x-dev",
     "drush/drush": "^8",
+    "drupal/bootstrap_cloud": "1.x-dev",
     "google/apiclient": "^2.2.3",
     "drupal/ctools": "^3.2"
   },
