@@ -44,4 +44,5 @@ install:
   - cloud_orchestrator_tour
 themes:
   - seven
+  - bootstrap
   - bootstrap_cloud
