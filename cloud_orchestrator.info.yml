@@ -41,7 +41,7 @@ install:
   - copyright_footer
   - login_destination
   - ctools
-  - tour
+  - cloud_orchestrator_tour
 themes:
   - bartik
   - seven

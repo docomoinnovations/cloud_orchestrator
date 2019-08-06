@@ -1,0 +1,19 @@
+<?php
+
+/**
+ * @file
+ * Tour code.
+ */
+
+/**
+ * Implements hook_page_attachments().
+ */
+function cloud_orchestrator_tour_page_attachments(array &$page) {
+  // Add tour css to support buttons.
+  if (\Drupal::currentUser()->isAuthenticated()) {
+   if (!\Drupal::service('router.admin_context')->isAdminRoute()) {
+     $page['#attached']['library'][] = 'seven/tour-styling';
+     $page['#attached']['library'][] = 'cloud_orchestrator_tour/tour-theme';
+   }
+  }
+}

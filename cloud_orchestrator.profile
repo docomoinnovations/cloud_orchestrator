@@ -50,13 +50,13 @@ function cloud_orchestrator_install_tasks_alter(array &$tasks, array $install_st
 
 function cloud_orchestrator_after_install_finished(array &$install_state) {
   global $base_url;
-  $add_cloud_config_url = $base_url . '/welcome';
+  $add_cloud_config_url = $base_url . '/welcome?tour';
   install_finished($install_state);
 
   $output = [];
 
   // Clear all messages.
-  drupal_get_messages();
+  \Drupal::messenger()->deleteAll();
 
   $output = [
     '#title' => t('Cloud Orchestrator'),
