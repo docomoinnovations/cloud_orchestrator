@@ -10,7 +10,7 @@ routes:
   -
     route_name: entity.node.canonical
     route_params:
-      node: 1
+      node: '1'
 tips:
   introduction:
     id: introduction
