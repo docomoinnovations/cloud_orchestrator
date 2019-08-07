@@ -54,6 +54,7 @@ function cloud_orchestrator_install() {
   // Import default content.
   cloud_orchestrator_import_content();
 
+  \Drupal::configFactory()->getEditable('aws_cloud.settings')->set('aws_cloud_instance_type_prices_spreadsheet', FALSE)->save();
   // Set the homepage
   \Drupal::configFactory()->getEditable('system.site')->set('page.front', '/welcome')->save(TRUE);
 
