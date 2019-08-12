@@ -42,6 +42,8 @@ install:
   - login_destination
   - ctools
   - cloud_orchestrator_tour
+  - panels
+  - page_manager
 themes:
   - seven
   - bootstrap_cloud
