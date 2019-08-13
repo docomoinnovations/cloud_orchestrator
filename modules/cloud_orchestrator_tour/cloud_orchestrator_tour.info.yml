@@ -1,8 +1,0 @@
-name: Cloud Orchestrator Tour
-type: module
-core: 8.x
-package: Cloud Orchestrator
-project: cloud_orchestrator
-version: 8.x-1.x-dev
-dependencies:
-  - drupal:tour
