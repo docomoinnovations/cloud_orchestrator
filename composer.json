@@ -41,7 +41,7 @@
     },
     "installer-paths": {
       "docroot/core": ["type:drupal-core"],
-      "docroot/profiles/{$name}": ["type:drupal-profile"],
+      "docroot/profiles/contrib/{$name}": ["type:drupal-profile"],
       "docroot/modules/contrib/{$name}": ["type:drupal-module"],
       "docroot/themes/contrib/{$name}": ["type:drupal-theme"],
       "docroot/libraries/{$name}": [
