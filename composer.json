@@ -35,7 +35,7 @@
       "drupal/core": "dist"
     }
   },
-  "extras": {
+  "extra": {
     "drupal-composer-helper": {
       "web-prefix": "docroot"
     },
