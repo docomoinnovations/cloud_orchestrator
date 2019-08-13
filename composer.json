@@ -67,7 +67,6 @@
     "drupal/authorization": "^1.0@beta",
     "drupal/externalauth": "^1.1",
     "drupal/bootstrap": "^3.20",
-    "drupal/cloud_orchestrator": "1.x-dev",
     "drupal/panels": "^4.4",
     "drupal/page_manager": "^4.0@beta",
     "drush/drush": "^8",
