@@ -1,9 +1,6 @@
-uuid: 87b27f9f-cb4f-4fcd-ac94-90a998839536
 langcode: en
 status: true
 dependencies: {  }
-_core:
-  default_config_hash: emaCv-JQ8uuDjU0T8geC5FVeJwPONNoymRdefmK7KTs
 id: cloud_operator
 label: 'Cloud operator'
 weight: -9
@@ -32,12 +29,15 @@ permissions:
   - 'edit aws cloud security group'
   - 'revert all cloud config revisions'
   - 'revert all cloud server template revisions'
+  - 'view any aws cloud elastic ip'
   - 'view any aws cloud image'
   - 'view any aws cloud instance'
+  - 'view any aws cloud key pair'
+  - 'view any aws cloud network interface'
+  - 'view any aws cloud security group'
   - 'view any aws cloud snapshot'
   - 'view any aws cloud subnet'
   - 'view any aws cloud volume'
   - 'view any aws cloud vpc'
   - 'view any published cloud server template entities'
   - 'view any unpublished cloud server template entities'
-  - 'view own unpublished cloud config entities'

@@ -8,16 +8,14 @@ label: welcome
 module: cloud_orchestrator_tour
 routes:
   -
-    route_name: entity.node.canonical
-    route_params:
-      node: '1'
+    route_name: page_manager.page_view_dashboard_dashboard-panels_variant-0
 tips:
   introduction:
     id: introduction
     plugin: text
     label: Welcome
     weight: -100
-    attributes: null
+    attributes: {  }
     body: 'Welcome to Cloud Orchestrator!  Use it to manage your cloud infrastructure.'
     location: top
   add-a-cloud-service-provider:
@@ -43,6 +41,6 @@ tips:
     plugin: text
     label: 'Launch Instances'
     weight: -100
-    attributes: null
+    attributes: {  }
     body: "You are ready to launch and manage instances!\r\n<p>\r\n<a href=\"/admin/structure/cloud_config/add/aws_ec2?tour=1\" class=\"button button--primary\">Add Cloud Service Provider</a>\r\n</p>"
     location: top

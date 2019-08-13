@@ -56,7 +56,7 @@ function cloud_orchestrator_install() {
 
   \Drupal::configFactory()->getEditable('aws_cloud.settings')->set('aws_cloud_instance_type_prices_spreadsheet', FALSE)->save();
   // Set the homepage
-  \Drupal::configFactory()->getEditable('system.site')->set('page.front', '/welcome')->save(TRUE);
+  \Drupal::configFactory()->getEditable('system.site')->set('page.front', '/dashboard')->save(TRUE);
 
   // Remove access content from Anonymous user
   user_role_revoke_permissions(RoleInterface::ANONYMOUS_ID, ['access content']);
