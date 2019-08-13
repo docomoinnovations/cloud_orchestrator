@@ -1,14 +1,26 @@
-Cloud Orchestrator Distribution
-===============================
+# Cloud Orchestrator
 
-These are the instructions for building the distribution during development.
+Cloud Orchestrator is a distribution for cloud administrators and operators.
+This distribution can manage resources from cloud providers such as AWS EC2 with future support for
+Kubernetes, and OpenStack coming very shortly.
 
-1. Copy the composer file https://git.drupalcode.org/project/cloud_orchestrator/blob/8.x-1.x/composer.json into a directory.
-    - `mkdir orchestrator`
-    - `cd orchestator`
-    - `wget -O composer.json https://git.drupalcode.org/project/cloud_orchestrator/raw/8.x-1.x/composer.json?inline=false`
-2. Change directory to orchestrator and run composer install.  This will download Drupal, modules, themes and libraries.
-    - `cd orchestrator`
-    - `composer install`
-3. Configure Apache or Nginx to point to the newly created `orchestrator/web` directory as the document root.
-4. Run the Drupal installer.
+Out of the box, the distribution provides management for AWS EC2, AWS VPC/Networking and granular
+user permissions.
+
+Cloud Orchestrator's core functionality is built using the [cloud_module].
+
+## Installing Cloud Orchestrator
+The recommended way to install Cloud Orchestrator is using composer.  All it takes is one command
+
+```
+composer create-project docomoinnovations/cloud_orchestrator --stability=dev cloud_orchestrator
+```
+
+After the composer project is created, point your web server to `cloud_orchestrator/docroot`.  Then
+run the normal Drupal installer.
+
+##  Contributing
+Issues are tracked on [drupal.org][issue_queue].  Please do not submit support requests through GitHub.
+
+[issue_queue]:  https://www.drupal.org/project/issues/cloud_orchestrator "Cloud Orchestrator Issue Queue"
+[cloud_module]: https://www.drupal.org/project/cloud "Cloud module"
