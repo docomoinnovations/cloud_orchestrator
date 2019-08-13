@@ -1,5 +1,5 @@
 {
-  "name": "docomo/cloud_orchestrator",
+  "name": "docomoinnovations/cloud_orchestrator",
   "description": "Cloud orchestrator distribution by Docomo Innovations",
   "type": "drupal-profile",
   "license": "GPL-2.0-or-later",
@@ -15,7 +15,6 @@
   "support": {
     "issues": "http://drupal.org/project/issues/cloud_orchestrator",
     "source": "http://cgit.drupalcode.org/cloud_orchestrator"
-
   },
   "repositories": {
     "drupal": {
@@ -25,6 +24,10 @@
     "assets": {
       "type": "composer",
       "url": "https://asset-packagist.org"
+    },
+    "dev": {
+      "type" : "github",
+      "url": "https://github.com/docomoinnovations/cloud_orchestrator"
     }
   },
   "config": {
