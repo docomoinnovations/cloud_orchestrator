@@ -13,7 +13,7 @@ Cloud Orchestrator's core functionality is built using the [cloud_module].
 The recommended way to install Cloud Orchestrator is using composer.  All it takes is one command
 
 ```
-composer create-project docomoinnovations/cloud_orchestrator --stability=dev cloud_orchestrator
+composer create-project docomoinnovations/cloud_orchestrator cloud_orchestrator
 ```
 
 After the composer project is created, point your web server to `cloud_orchestrator/docroot`.  Then
