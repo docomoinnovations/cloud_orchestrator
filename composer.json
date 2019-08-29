@@ -55,7 +55,7 @@
     }
   },
   "require": {
-    "hussainweb/drupal-composer-helper": "^1.0",
+    "hussainweb/drupal-composer-helper": "1.0.0-beta3",
     "aws/aws-sdk-php": "3.*.*@dev",
     "composer/installers": "^1.0",
     "drupal/admin_toolbar": "^1.27",
