@@ -3,7 +3,7 @@ FROM drupal
 RUN apt-get update && apt-get -y install zip git libcap2-bin sqlite
 RUN curl -Lo /usr/local/bin/composer https://getcomposer.org/download/1.9.1/composer.phar && chmod +x /usr/local/bin/composer
 RUN rm -rf /var/www/html/*
-RUN sed -i "s#/var/www/html/#/var/www/html/web#" /etc/apache2/sites-available/000-default.conf
+RUN sed -i "s#/var/www/html#/var/www/html/web#" /etc/apache2/sites-available/000-default.conf
 RUN chown -hR www-data:www-data /etc/apache2
 RUN setcap 'cap_net_bind_service=+ep' /usr/sbin/apache2
 RUN getcap /usr/sbin/apache2
