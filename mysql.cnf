@@ -1,0 +1,5 @@
+[mysqld]
+key_buffer_size    = 384M
+max_allowed_packet  = 32M
+thread_stack    = 400K
+thread_cache_size       = 8
