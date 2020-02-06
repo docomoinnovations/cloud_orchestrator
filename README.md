@@ -28,8 +28,7 @@ Issues are tracked on [drupal.org][issue_queue].  Please do not submit support r
 [issue_queue]:  https://www.drupal.org/project/issues/cloud_orchestrator "Cloud Orchestrator Issue Queue"
 [cloud_module]: https://www.drupal.org/project/cloud "Cloud module"
 
-Known Issues
-============
+#Known Issues
 
 1. 01-31-2020 - [Issue 3110911](https://www.drupal.org/project/cloud/issues/3110911)
    Do not enable aws_cloud if a `Add Kubernetes Cloud Service Provider`
