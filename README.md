@@ -1,13 +1,12 @@
 # Cloud Orchestrator
 
 Cloud Orchestrator is a distribution for cloud administrators and operators.
-This distribution can manage resources from cloud providers such as AWS EC2 with future support for
-Kubernetes, and OpenStack coming very shortly.
+This distribution can manage resources from cloud providers such as AWS EC2, OpenStack and Kubernetes
 
 Out of the box, the distribution provides management for AWS EC2, AWS VPC/Networking and granular
 user permissions.
 
-Cloud Orchestrator's core functionality is built using the [cloud_module].
+Cloud Orchestrator's core functionality is built using the [cloud_module](https://www.drupal.org/project/cloud).
 
 ## Installing Cloud Orchestrator
 The recommended way to install Cloud Orchestrator is using composer.  All it takes is one command
@@ -18,6 +17,10 @@ composer create-project docomoinnovations/cloud_orchestrator cloud_orchestrator
 
 After the composer project is created, point your web server to `cloud_orchestrator/docroot`.  Then
 run the normal Drupal installer.
+
+Alternatively, you can use the [AWS CloudFormation template](cfn/cloud_orchestrator_cfn.yml) to launch
+the Cloud Orchestrator stack on AWS EC2.  After the stack is completed (about 20 minutes),
+click on the `DrupalUrl` under the `Outputs` tab.  Follow the installation process.
 
 ##  Contributing
 Issues are tracked on [drupal.org][issue_queue].  Please do not submit support requests through GitHub.

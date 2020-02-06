@@ -1,0 +1,582 @@
+##
+# Cloud Orchestrator Distribution Test
+# Use this cloud formation template to launch a
+# cloud orchestrator stack.
+##
+AWSTemplateFormatVersion: 2010-09-09
+Description: 'Cloud Orchestrator'
+Metadata:
+  'AWS::CloudFormation::Interface':
+    ParameterGroups:
+      - Label:
+          default: Amazon EC2 Configuration
+        Parameters:
+          - InstanceType
+          - KeyName
+      - Label:
+          default: Amazon RDS Configuration
+        Parameters:
+          - RDSInstanceType
+          - MySQLUserName
+          - MySQLPassword
+          - DatabaseName
+          - DBAllocatedStorage
+    ParameterLabels:
+      RDSInstanceType:
+        default: RDS instance type
+      MySQLUserName:
+        default: MySQL administrator username
+      MySQLPassword:
+        default: MySQL administrator password
+      DatabaseName:
+        default: MySQL database name
+      DBAllocatedStorage:
+        default: Database allocated storage
+      InstanceType:
+        default: EC2 instance type
+      KeyName:
+        default: EC2 key name
+Mappings:
+  # The AMIs are base Ubuntu 18.04 LTS images.
+  # ubuntu/images/hvm-ssd/ubuntu-bionic-18.04-amd64-server-20191112
+  CloudOrchestrator:
+    us-east-1:
+      AMI: ami-00a208c7cdba991ea
+    us-east-2:
+      AMI: ami-059d836af932792c3
+    use-west-1:
+      AMI: ami-0f42d8c4eb586ccf7
+    us-west-2:
+      AMI: ami-0a7d051a1c4b54f65
+    ap-south-1:
+      AMI: ami-0245841fc4b40e22f
+    ap-northeast-1:
+      AMI: ami-0f6b4f4104d26f399
+    ap-northeast-2:
+      AMI: ami-02b4a5559ce53a570
+    ap-southeast-1:
+      AMI: ami-07febfdfb4080320e
+    ap-southeast-2:
+      AMI: ami-04a0f7552cff370ba
+    ca-central-1:
+      AMI: ami-0972a0d3135cf1fc0
+    eu-central-1:
+      AMI: ami-09356619876445425
+    eu-west-1:
+      AMI: ami-04c58523038d79132
+    eu-west-2:
+      AMI: ami-00622b440d92e55c0
+    eu-west-3:
+      AMI: ami-0b70d1460d5c7a299
+    eu-north-1:
+      AMI: ami-005bc7d72deb72a3d
+    sa-east-1:
+      AMI: ami-049f5d88d2d436431
+  # VPC IP blocks for public and private CidrBlocks.
+  SubnetCidrBlocks:
+    PublicSubnet1:
+      CidrBlock: 10.0.0.0/24
+    PrivateSubnet1:
+      CidrBlock: 10.0.1.0/24
+    PrivateSubnet2:
+      CidrBlock: 10.0.2.0/24
+Parameters:
+  KeyName:
+    Description: Name of an existing EC2 key pair to SSH access into the EC2 instance.
+    Type: 'AWS::EC2::KeyPair::KeyName'
+    ConstraintDescription: Must be the name of an existing EC2 KeyPair.
+    MinLength: '1'
+  InstanceType:
+    Description: The EC2 instance type.
+    Type: String
+    Default: t3.medium
+    AllowedValues:
+      - t3.medium
+      - t3.large
+      - t3.xlarge
+      - t3.2xlarge
+      - t3a.medium
+      - t3a.large
+      - t3a.xlarge
+      - t3a.2xlarge
+      - m5.large
+      - m5.xlarge
+      - m5.2xlarge
+      - m5.4xlarge
+      - m5.8xlarge
+      - m5.12xlarge
+      - m5.16xlarge
+      - m5.24xlarge
+      - m5a.large
+      - m5a.xlarge
+      - m5a.2xlarge
+      - m5a.4xlarge
+      - m5a.8xlarge
+      - m5a.12xlarge
+      - m5a.16xlarge
+      - m5a.24xlarge
+      - c5.large
+      - c5.xlarge
+      - c5.2xlarge
+      - c5.4xlarge
+      - c5.9xlarge
+      - c5.12xlarge
+      - c5.18xlarge
+      - c5.24xlarge
+      - c5d.large
+      - c5d.xlarge
+      - c5d.2xlarge
+      - c5d.4xlarge
+      - c5d.9xlarge
+      - c5d.12xlarge
+      - c5d.18xlarge
+      - c5d.24xlarge
+      - r5.large
+      - r5.xlarge
+      - r5.2xlarge
+      - r5.4xlarge
+      - r5.8xlarge
+      - r5.12xlarge
+      - r5.16xlarge
+      - r5.24xlarge
+      - r5a.large
+      - r5a.xlarge
+      - r5a.2xlarge
+      - r5a.4xlarge
+      - r5a.8xlarge
+      - r5a.12xlarge
+      - r5a.16xlarge
+      - r5a.24xlarge
+      - d2.xlarge
+      - d2.2xlarge
+      - d2.4xlarge
+      - d2.8xlarge
+      - i3.large
+      - i3.xlarge
+      - i3.2xlarge
+      - i3.4xlarge
+      - i3.8xlarge
+      - i3.16xlarge
+    ConstraintDescription: Must be a valid EC2 instance type.
+  MySQLUserName:
+    Description: >-
+      Username for the RDS. Must be between 5 and 16 characters and only contain
+      alphanumeric characters and underscores.
+    Default: administrator
+    Type: String
+    NoEcho: 'false'
+    MinLength: '5'
+    MaxLength: '16'
+    AllowedPattern: "[a-zA-Z0-9_]*"
+    ConstraintDescription: >-
+      Must contain only alphanumeric characters, underscores
+      and must be between 5 and 16 characters long.
+  MySQLPassword:
+    Description: >-
+      Password for the RDS Username.  Must be between 6 and 32 characters and
+      only contain alphanumeric characters and these special
+      characters '_'`~!#$%^&*()_+,-.
+    Type: String
+    MinLength: '6'
+    MaxLength: '32'
+    AllowedPattern: '^([a-z0-9A-Z`~!#$%^&*()_+,.\\-])*$'
+    ConstraintDescription: >-
+      Your MySQLPassword must be letters (upper or lower),
+      numbers, and these special characters '_'`~!#$%^&*()_+,-.
+    NoEcho: 'true'
+  DatabaseName:
+    Description: >-
+      The name of the database. Must be between 4 and 32 characters and
+      only contain alphanumeric characters and underscores.
+    Type: String
+    Default: cloud_orchestrator
+    AllowedPattern: '[a-zA-Z0-9_]*'
+    MinLength: '4'
+    MaxLength: '32'
+    ConstraintDescription: >-
+      Your database name must be between 4 and 32 characters and
+      contain alphanumeric characters and underscores.
+  RDSInstanceType:
+    Description: RDS Instance Type.
+    Default: db.t2.micro
+    Type: String
+    AllowedValues:
+      - db.t2.micro
+      - db.t2.small
+      - db.t2.medium
+      - db.t2.large
+      - db.t2.xlarge
+      - db.t2.2xlarge
+      - db.m4.large
+      - db.m4.xlarge
+      - db.m4.2xlarge
+      - db.m4.4xlarge
+      - db.m4.10xlarge
+      - db.m4.16xlarge
+      - db.m5.large
+      - db.m5.xlarge
+      - db.m5.4xlarge
+      - db.m5.12xlarge
+      - db.m5.24xlarge
+      - db.r4.large
+      - db.r4.xlarge
+      - db.r4.2xlarge
+      - db.r4.4xlarge
+      - db.r4.8xlarge
+      - db.r4.16xlarge
+      - db.r5.large
+      - db.r5.xlarge
+      - db.r5.2xlarge
+      - db.r5.4xlarge
+      - db.r5.12xlarge
+      - db.r5.24xlarge
+    ConstraintDescription: Must be a valid RDS Instance Type.
+  DBAllocatedStorage:
+    Default: '5'
+    Description: The size of the database (Gb).  Must be between 5 and 16384.
+    Type: Number
+    MinValue: '5'
+    MaxValue: '16384'
+    ConstraintDescription: Must be between 20 and 16384Gb.
+Resources:
+  VPC:
+    Type: AWS::EC2::VPC
+    Properties:
+      CidrBlock: 10.0.0.0/16
+      EnableDnsHostnames: true
+      Tags:
+      - Key: Name
+        Value:
+          !Sub '${AWS::StackName} VPC'
+  InternetGateway:
+    Type: AWS::EC2::InternetGateway
+    Properties:
+      Tags:
+      - Key: Name
+        Value:
+          !Sub '${AWS::StackName} Internet Gateway'
+  AttachGateway:
+    Type: AWS::EC2::VPCGatewayAttachment
+    Properties:
+      VpcId: !Ref VPC
+      InternetGatewayId: !Ref InternetGateway
+  PublicSubnet1:
+    Type: AWS::EC2::Subnet
+    Properties:
+      VpcId: !Ref VPC
+      CidrBlock: !FindInMap
+        - SubnetCidrBlocks
+        - PublicSubnet1
+        - CidrBlock
+      AvailabilityZone: !Select
+        - '0'
+        - !GetAZs ''
+      Tags:
+        - Key: Name
+          Value: !Sub '${AWS::StackName} Public Subnet 1'
+  PrivateSubnet1:
+    Type: AWS::EC2::Subnet
+    Properties:
+      VpcId: !Ref VPC
+      CidrBlock: !FindInMap
+        - SubnetCidrBlocks
+        - PrivateSubnet1
+        - CidrBlock
+      AvailabilityZone: !Select
+        - '0'
+        - !GetAZs ''
+      Tags:
+        - Key: Name
+          Value: !Sub '${AWS::StackName} Private Subnet 1'
+  PrivateSubnet2:
+    Type: AWS::EC2::Subnet
+    Properties:
+      VpcId: !Ref VPC
+      CidrBlock: !FindInMap
+        - SubnetCidrBlocks
+        - PrivateSubnet2
+        - CidrBlock
+      AvailabilityZone: !Select
+        - '1'
+        - !GetAZs ''
+      Tags:
+        - Key: Name
+          Value: !Sub '${AWS::StackName} Private Subnet 2'
+  PublicRouteTable:
+    Type: AWS::EC2::RouteTable
+    Properties:
+      VpcId: !Ref VPC
+      Tags:
+        - Key: Name
+          Value: !Sub '${AWS::StackName} Public Route Table'
+  PublicRoute:
+    Type: AWS::EC2::Route
+    Properties:
+      RouteTableId: !Ref PublicRouteTable
+      DestinationCidrBlock: 0.0.0.0/0
+      GatewayId: !Ref InternetGateway
+  PublicSubnetRouteTableAssociation1:
+    Type: AWS::EC2::SubnetRouteTableAssociation
+    Properties:
+      SubnetId: !Ref PublicSubnet1
+      RouteTableId: !Ref PublicRouteTable
+  PrivateRouteTable:
+    Type: AWS::EC2::RouteTable
+    Properties:
+      VpcId: !Ref VPC
+      Tags:
+      - Key: Name
+        Value: !Sub '${AWS::StackName} Private Route Table'
+  PrivateSubnetRouteTableAssociation1:
+    Type: AWS::EC2::SubnetRouteTableAssociation
+    Properties:
+      SubnetId: !Ref PrivateSubnet1
+      RouteTableId: !Ref PrivateRouteTable
+  PrivateSubnetRouteTableAssociation2:
+    Type: AWS::EC2::SubnetRouteTableAssociation
+    Properties:
+      SubnetId: !Ref PrivateSubnet2
+      RouteTableId: !Ref PrivateRouteTable
+  EC2SecurityGroup:
+    Type: AWS::EC2::SecurityGroup
+    Properties:
+      GroupName:
+        !Sub '${AWS::StackName} Public Security Group'
+      GroupDescription: "SSH and HTTP traffic in, all traffic out."
+      VpcId: !Ref VPC
+      SecurityGroupIngress:
+        - IpProtocol: tcp
+          FromPort: '22'
+          ToPort: '22'
+          CidrIp: 0.0.0.0/0
+        - IpProtocol: tcp
+          FromPort: '80'
+          ToPort: '80'
+          CidrIp: 0.0.0.0/0
+      SecurityGroupEgress:
+        - IpProtocol: -1
+          CidrIp: 0.0.0.0/0
+  SubnetSecurityGroup:
+    Type: AWS::EC2::SecurityGroup
+    Properties:
+      GroupName:
+        !Sub '${AWS::StackName} Subnet Private Security Group'
+      GroupDescription: "Internal Security Group for DB and ElastiCache"
+      VpcId: !Ref VPC
+      SecurityGroupIngress:
+        - IpProtocol: tcp
+          FromPort: '3306'
+          ToPort: '3306'
+          CidrIp: !FindInMap
+            - SubnetCidrBlocks
+            - PublicSubnet1
+            - CidrBlock
+        - IpProtocol: tcp
+          FromPort: '11211'
+          ToPort: '11211'
+          CidrIp: !FindInMap
+            - SubnetCidrBlocks
+            - PublicSubnet1
+            - CidrBlock
+      SecurityGroupEgress:
+        - IpProtocol: -1
+          CidrIp: 0.0.0.0/0
+  DbSubnetGroup:
+    Type: AWS::RDS::DBSubnetGroup
+    Properties:
+      DBSubnetGroupDescription:
+        !Sub 'RDS Subnet Group for ${AWS::StackName}'
+      SubnetIds:
+      - Ref: PrivateSubnet1
+      - Ref: PrivateSubnet2
+  RDS:
+    Type: 'AWS::RDS::DBInstance'
+    DeletionPolicy: Snapshot
+    Properties:
+      AllocatedStorage: !Ref DBAllocatedStorage
+      StorageType: gp2
+      PubliclyAccessible: 'true'
+      AllowMajorVersionUpgrade: 'true'
+      AutoMinorVersionUpgrade: 'true'
+      AvailabilityZone: !Select
+        - '0'
+        - !GetAZs
+          Ref: 'AWS::Region'
+      BackupRetentionPeriod: '2'
+      DBInstanceIdentifier: !Sub '${AWS::StackName}-Drupal-RDS'
+      DBInstanceClass: !Ref RDSInstanceType
+      DBName: !Ref DatabaseName
+      DBSubnetGroupName: !Ref DbSubnetGroup
+      Engine: MySQL
+      EngineVersion: 5.7.22
+      MasterUsername: !Ref MySQLUserName
+      MasterUserPassword: !Ref MySQLPassword
+      Port: '3306'
+      PreferredBackupWindow: '00:00-00:30'
+      PreferredMaintenanceWindow: 'sun:16:00-sun:17:30'
+      Tags:
+        - Key: Application
+          Value: !Ref 'AWS::StackName'
+      VPCSecurityGroups:
+        - !Ref SubnetSecurityGroup
+  EC2:
+    Type: 'AWS::EC2::Instance'
+    Properties:
+      DisableApiTermination: 'false'
+      EbsOptimized: 'false'
+      ImageId: !FindInMap
+        - CloudOrchestrator
+        - !Ref 'AWS::Region'
+        - AMI
+      InstanceInitiatedShutdownBehavior: stop
+      InstanceType: !Ref InstanceType
+      KeyName: !Ref KeyName
+      Monitoring: 'false'
+      NetworkInterfaces:
+        - AssociatePublicIpAddress: "true"
+          DeviceIndex: "0"
+          SubnetId: !Ref PublicSubnet1
+          GroupSet:
+            - !Ref EC2SecurityGroup
+      Tenancy: default
+      UserData:
+        Fn::Base64:
+          Fn::Sub:
+            - |
+              #!/bin/bash -xe
+
+              # Basic package installation
+              apt-get update -y
+              DEBIAN_FRONTEND=noninteractive apt-get upgrade -yq
+
+              apt-get install -y python-pip python-setuptools mysql-client apache2 \
+              zip unzip sendmail
+
+              apt-get install -y php7.2 php7.2-mysql php7.2-gd php7.2-curl php7.2-xml \
+              php7.2-cli php7.2-json php7.2-mbstring php7.2-opcache php7.2-readlin \
+              php7.2-xml php7.2-zip libapache2-mod-php7.2 php7.2-memcache
+
+              # Install Composer
+              php -r "copy('https://getcomposer.org/installer', '/tmp/composer-setup.php');"
+              sudo php /tmp/composer-setup.php  --install-dir /usr/local/bin --filename composer
+
+              # Install Drush
+              git clone https://github.com/drush-ops/drush.git /usr/local/src/drush
+              cd /usr/local/src/drush
+              git checkout 9.7.1
+              ln -s /usr/local/src/drush/drush /usr/local/bin/drush
+              cd /usr/local/src/drush && sudo composer install
+
+              # Setup DocRoot
+              vhost_file=/etc/apache2/sites-available/cloud_orchestrator.conf
+
+              sudo tee $vhost_file > /dev/null <<EOF
+              <VirtualHost *:80>
+                      DocumentRoot /var/www/cloud_orchestrator/docroot
+
+                      <Directory />
+                        Options FollowSymLinks
+                        AllowOverride None
+                      </Directory>
+                      <Directory /var/www/cloud_orchestrator/docroot>
+                        Options FollowSymLinks MultiViews
+                        AllowOverride All
+                        Order allow,deny
+                        allow from all
+                      </Directory>
+
+                      ErrorLog /var/log/apache2/cloud_orchestrator.error.log
+
+                      # Possible values include: debug, info, notice, warn, error, crit,
+                      # alert, emerg.
+                      LogLevel warn
+
+                      CustomLog /var/log/apache2/cloud_orchestrator.access.log combined
+
+              </VirtualHost>
+              EOF
+
+              php_extras=/etc/php/7.2/apache2/conf.d/extras.ini
+              sudo tee $php_extras > /dev/null <<EOF
+              memory_limit = 256M
+              max_execution_time = 600
+              EOF
+
+              # Use composer to create Cloud Orchestrator project
+              sudo chown -R ubuntu:ubuntu /var/www
+              sudo rm -rf /var/www/html
+
+              cd /var/www && sudo -u ubuntu composer create-project docomoinnovations/cloud_orchestrator cloud_orchestrator
+
+              # Unlink default apache configurations
+              sudo a2dissite 000-default
+              sudo a2enmod rewrite
+              sudo a2ensite cloud_orchestrator
+              sudo service apache2 restart
+
+              sudo mkdir -p /var/files/drupal
+              sudo chown -R ubuntu /var/files
+              sudo chgrp -R www-data /var/files
+              sudo chmod g+rw -R /var/files
+
+              settings_file=/var/www/cloud_orchestrator/docroot/sites/default/settings.php
+
+              sudo tee -a $settings_file > /dev/null <<EOF
+              \$settings['file_private_path'] = '/var/files/drupal';
+
+              \$databases['default']['default'] = array (
+                'database' => '${DatabaseName}',
+                'username' => '${MySQLUserName}',
+                'password' => '${MySQLPassword}',
+                'prefix' => '',
+                'host' => '${DatabaseEndpointAddress}',
+                'port' => '3306',
+                'namespace' => 'Drupal\\Core\\Database\\Driver\\mysql',
+                'driver' => 'mysql',
+              );
+              EOF
+
+              sudo mkdir -p /var/www/cloud_orchestrator/config/sync
+              sudo chown -R ubuntu:www-data /var/www/cloud_orchestrator/config/sync
+              sudo chmod -R g+w /var/www/cloud_orchestrator/config/sync
+
+              # After install setup cron
+              { echo "*/5 * * * * cd /var/www/cloud_orchestrator && drush cron /dev/null 2>&1"; } | crontab -
+
+            - {
+                MySQLUserName: !Ref MySQLUserName,
+                MySQLPassword: !Ref MySQLPassword,
+                DatabaseEndpointAddress: !GetAtt RDS.Endpoint.Address,
+                DatabasePort: !GetAtt RDS.Endpoint.Port,
+                DatabaseName: !Ref DatabaseName,
+              }
+      Tags:
+        - Key: Application
+          Value: !Ref 'AWS::StackName'
+        - Key: Name
+          Value: !Sub '${AWS::StackName} Drupal Instance'
+Outputs:
+  EC2InstanceName:
+    Value: !Sub '${AWS::StackName} Drupal Instance'
+  RDSInstanceName:
+    Value: !Sub '${AWS::StackName}-Drupal-RDS'
+  DatabaseName:
+    Value: !Ref DatabaseName
+  MySQLUserName:
+    Value: !Ref MySQLUserName
+  MySQLPassword:
+    Value: !Ref MySQLPassword
+  DatabaseEndpointAddress:
+    Value: !GetAtt RDS.Endpoint.Address
+  DatabasePort:
+    Value: !GetAtt RDS.Endpoint.Port
+  DrupalUrl:
+    Value:
+      !Sub
+        - 'http://${PublicIp}'
+        - { PublicIp: !GetAtt EC2.PublicIp }
+  SSHAccess:
+    Value:
+      !Sub
+        - 'ssh ubuntu@${PublicIp}'
+        - { PublicIp: !GetAtt EC2.PublicIp }
