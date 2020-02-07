@@ -1,7 +1,7 @@
 # Cloud Orchestrator
 
 Cloud Orchestrator is a distribution for cloud administrators and operators.
-This distribution can manage resources from cloud providers such as AWS EC2, OpenStack and Kubernetes
+This distribution can manage resources from cloud providers such as AWS EC2, Kubernetes and OpenStack.
 
 Out of the box, the distribution provides management for AWS EC2, AWS VPC/Networking and granular
 user permissions.
