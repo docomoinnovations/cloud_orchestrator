@@ -21,6 +21,10 @@ Metadata:
           - MySQLPassword
           - DatabaseName
           - DBAllocatedStorage
+      - Label:
+          default: Cloud Orchestrator Configuration
+        Parameters:
+          - CloudOrchestratorVersion
     ParameterLabels:
       RDSInstanceType:
         default: RDS instance type
@@ -36,6 +40,8 @@ Metadata:
         default: EC2 instance type
       KeyName:
         default: EC2 key name
+      CloudOrchestratorVersion:
+        default: Cloud Orchestrator Version
 Mappings:
   # The AMIs are base Ubuntu 18.04 LTS images.
   # ubuntu/images/hvm-ssd/ubuntu-bionic-18.04-amd64-server-20191112
@@ -238,6 +244,13 @@ Parameters:
     MinValue: '5'
     MaxValue: '16384'
     ConstraintDescription: Must be between 20 and 16384Gb.
+  CloudOrchestratorVersion:
+    Description: Version of the Cloud Orchestrator to install.
+    Default: 8.2.0-rc1
+    Type: String
+    AllowedValues:
+      - 8.2.0-rc1
+      - 8.1.1
 Resources:
   VPC:
     Type: AWS::EC2::VPC
@@ -506,7 +519,7 @@ Resources:
               sudo chown -R ubuntu:ubuntu /var/www
               sudo rm -rf /var/www/html
 
-              cd /var/www && sudo -u ubuntu composer create-project docomoinnovations/cloud_orchestrator cloud_orchestrator
+              cd /var/www && sudo -u ubuntu composer create-project docomoinnovations/cloud_orchestrator:${CloudOrchestratorVersion} cloud_orchestrator
 
               # Unlink default apache configurations
               sudo a2dissite 000-default
@@ -549,6 +562,7 @@ Resources:
                 DatabaseEndpointAddress: !GetAtt RDS.Endpoint.Address,
                 DatabasePort: !GetAtt RDS.Endpoint.Port,
                 DatabaseName: !Ref DatabaseName,
+                CloudOrchestratorVersion: !Ref CloudOrchestratorVersion
               }
       Tags:
         - Key: Application
