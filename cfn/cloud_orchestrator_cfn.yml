@@ -251,6 +251,9 @@ Parameters:
     AllowedValues:
       - 8.2.0-rc1
       - 8.1.1
+      - 8.1.2-beta1
+      - dev-8.x-2.x
+      - dev-8.x-1.x
 Resources:
   VPC:
     Type: AWS::EC2::VPC
