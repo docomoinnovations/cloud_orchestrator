@@ -34,7 +34,6 @@ RUN set -eux; \
 		opcache \
 		pdo_mysql \
 		pdo_pgsql \
-		mbstring \
 		zip \
 	; \
 	\
@@ -48,14 +47,13 @@ RUN set -eux; \
  	composer install
 
 
-# Why it does not run
-RUN { \
-                echo 'opcache.memory_consumption=128'; \
-                echo 'opcache.interned_strings_buffer=8'; \
-                echo 'opcache.max_accelerated_files=4000'; \
-                echo 'opcache.revalidate_freq=60'; \
-                echo 'opcache.fast_shutdown=1'; \
-        } > /usr/local/etc/php/conf.d/opcache-recommended.ini
+#RUN { \
+#                echo 'opcache.memory_consumption=128'; \
+#                echo 'opcache.interned_strings_buffer=8'; \
+#                echo 'opcache.max_accelerated_files=4000'; \
+#                echo 'opcache.revalidate_freq=60'; \
+#                echo 'opcache.fast_shutdown=1'; \
+#        } > /usr/local/etc/php/conf.d/opcache-recommended.ini
 
 # Cloud Orchestrator php configurations
 RUN { \
