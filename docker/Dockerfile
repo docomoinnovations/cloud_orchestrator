@@ -16,6 +16,8 @@ RUN set -eux; \
 		libpng-dev \
 		libpq-dev \
 		libzip-dev \
+		zlibc \
+		zlibc1g \
 		git \
 		zip \
 		unzip \
@@ -27,6 +29,7 @@ RUN set -eux; \
 		--with-freetype-dir=/usr \
 		--with-jpeg-dir=/usr \
 		--with-png-dir=/usr \
+		--with-libzip \
 	; \
 	\
 	docker-php-ext-install -j "$(nproc)" \
@@ -36,7 +39,14 @@ RUN set -eux; \
 		pdo_pgsql \
 		zip \
 	; \
+
+    # Install Memcached
+	git clone https://github.com/php-memcached-dev/php-memcached /usr/src/php/ext/memcached; \
+      && cd /usr/src/php/ext/memcached && git checkout -b php7 origin/php7; \
+      && docker-php-ext-configure memcached; \
+      && docker-php-ext-install memcached
 	\
+
 	curl -sS https://getcomposer.org/installer | php && mv composer.phar /usr/local/bin/composer && composer global require; \
 	\
         # Install Drush
