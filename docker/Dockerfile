@@ -35,7 +35,6 @@ RUN set -eux; \
 		pdo_mysql \
 		pdo_pgsql \
 		zip \
-		xml \
 	; \
 	\
 	curl -sS https://getcomposer.org/installer | php && mv composer.phar /usr/local/bin/composer && composer global require; \
