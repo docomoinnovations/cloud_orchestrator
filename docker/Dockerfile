@@ -17,7 +17,7 @@ RUN set -eux; \
 		libpq-dev \
 		libzip-dev \
 		zlibc \
-		zlibc1g \
+		zlib1g \
 		git \
 		zip \
 		unzip \
@@ -29,9 +29,10 @@ RUN set -eux; \
 		--with-freetype-dir=/usr \
 		--with-jpeg-dir=/usr \
 		--with-png-dir=/usr \
-		--with-libzip \
 	; \
 	\
+	docker-php-ext-configure zip --with-libzip; \
+
 	docker-php-ext-install -j "$(nproc)" \
 		gd \
 		opcache \
@@ -41,19 +42,19 @@ RUN set -eux; \
 	; \
 
     # Install Memcached
-	git clone https://github.com/php-memcached-dev/php-memcached /usr/src/php/ext/memcached; \
-      && cd /usr/src/php/ext/memcached && git checkout -b php7 origin/php7; \
-      && docker-php-ext-configure memcached; \
-      && docker-php-ext-install memcached
-	\
+	git clone https://github.com/php-memcached-dev/php-memcached /usr/src/php/ext/memcached \
+      && cd /usr/src/php/ext/memcached && git checkout -b php7 origin/php7 \
+      && docker-php-ext-configure memcached \
+      && docker-php-ext-install memcached; \
 
 	curl -sS https://getcomposer.org/installer | php && mv composer.phar /usr/local/bin/composer && composer global require; \
 	\
-        # Install Drush
-        git clone https://github.com/drush-ops/drush.git /usr/local/src/drush; \
-	\
-        cd /usr/local/src/drush && git checkout 9.7.1; \
-        ln -s /usr/local/src/drush/drush /usr/local/bin/drush; \
+
+    # Install Drush
+    git clone https://github.com/drush-ops/drush.git /usr/local/src/drush; \
+
+    cd /usr/local/src/drush && git checkout 9.7.1; \
+    ln -s /usr/local/src/drush/drush /usr/local/bin/drush; \
  	composer install
 
 # Cloud Orchestrator php configurations
