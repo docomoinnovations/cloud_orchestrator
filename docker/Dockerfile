@@ -82,6 +82,11 @@ RUN { \
         echo "*/5 * * * * cd /var/www/cloud_orchestrator && drush cron /dev/null 2>&1"; \
     } | crontab -
 
+RUN set -eux; \
+  mkdir /var/www/cloud_orchestrator; \
+  mkdir /var/www/cloud_orchestrator/files; \
+  chown -R www-data:www-data /var/www/cloud_orchestrator/files; \
+  chmod -R g+w /var/www/cloud_orchestrator/files
+
 EXPOSE 80
-WORKDIR /var/www
-CMD chmod -R 777 /var/www/cloud_orchestrator/files
+WORKDIR /var/www/cloud_orchestrator
