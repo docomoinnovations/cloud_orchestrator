@@ -79,7 +79,7 @@ RUN set -eux; \
     a2ensite cloud_orchestrator; \
 
 RUN { \
-        echo "*/5 * * * * cd /var/www/cloud_orchestrator && drush cron /dev/null 2>&1"
+        echo "*/5 * * * * cd /var/www/cloud_orchestrator && drush cron /dev/null 2>&1"; \
     } | crontab -
 
 WORKDIR /var/www
