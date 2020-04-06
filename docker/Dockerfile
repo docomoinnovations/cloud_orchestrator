@@ -93,7 +93,8 @@ RUN set -eux; \
 	apt-get purge -y --auto-remove -o APT::AutoRemove::RecommendsImportant=false; \
 	rm -rf /var/lib/apt/lists/*
 
-RUN set -eux; \
-    { echo "*/5 * * * * cd /var/www/cloud_orchestrator && drush cron /dev/null 2>&1"; } | crontab -
+RUN { \
+        echo "*/5 * * * * cd /var/www/cloud_orchestrator && drush cron /dev/null 2>&1"
+    } | crontab -
 
 WORKDIR /var/www
