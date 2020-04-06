@@ -20,6 +20,7 @@ RUN set -eux; \
 		zip \
 		unzip \
 		mysql-client \
+		cron \
 	; \
 	\
 	docker-php-ext-configure gd \
@@ -76,7 +77,7 @@ RUN set -eux; \
     # Unlink default apache configurations
     a2dissite 000-default; \
 	a2dissite default-ssl.conf; \
-    a2ensite cloud_orchestrator; \
+    a2ensite cloud_orchestrator
 
 RUN { \
         echo "*/5 * * * * cd /var/www/cloud_orchestrator && drush cron /dev/null 2>&1"; \
