@@ -60,27 +60,27 @@ RUN set -eux; \
 
 # Cloud Orchestrator php configurations
 RUN { \
-               echo 'memory_limit = -1'; \
-               echo 'max_execution_time = 600';\
-       } > /usr/local/etc/php/conf.d/extras.ini
+    echo 'memory_limit = -1'; \
+    echo 'max_execution_time = 600';\
+} > /usr/local/etc/php/conf.d/extras.ini
 
 RUN { \
-  echo '<VirtualHost *:80>'; \
-  echo '  DocumentRoot /var/www/cloud_orchestrator/docroot'; \
-  echo '  <Directory />'; \
-  echo '    Options FollowSymLinks'; \
-  echo '    AllowOverride None'; \
-  echo '  </Directory>'; \
-  echo '  <Directory /var/www/cloud_orchestrator/docroot>'; \
-  echo '    Options FollowSymLinks MultiViews'; \
-  echo '    AllowOverride All'; \
-  echo '    order allow,deny'; \
-  echo '    allow from all'; \
-  echo '   </Directory>'; \
-  echo '  ErrorLog /var/log/apache2/cloud_orchestrator.error.log'; \
-  echo '  LogLevel warn'; \
-  echo '  CustomLog /var/log/apache2/cloud_orchestrator.access.log combined'; \
-  echo '</VirtualHost>'; \
+    echo '<VirtualHost *:80>'; \
+    echo '  DocumentRoot /var/www/cloud_orchestrator/docroot'; \
+    echo '  <Directory />'; \
+    echo '    Options FollowSymLinks'; \
+    echo '    AllowOverride None'; \
+    echo '  </Directory>'; \
+    echo '  <Directory /var/www/cloud_orchestrator/docroot>'; \
+    echo '    Options FollowSymLinks MultiViews'; \
+    echo '    AllowOverride All'; \
+    echo '    order allow,deny'; \
+    echo '    allow from all'; \
+    echo '   </Directory>'; \
+    echo '  ErrorLog /var/log/apache2/cloud_orchestrator.error.log'; \
+    echo '  LogLevel warn'; \
+    echo '  CustomLog /var/log/apache2/cloud_orchestrator.access.log combined'; \
+    echo '</VirtualHost>'; \
 } > /etc/apache2/sites-available/cloud_orchestrator.conf
 
 RUN set -eux; \
@@ -91,14 +91,14 @@ RUN set -eux; \
     a2ensite cloud_orchestrator
 
 RUN { \
-        echo "*/5 * * * * cd /var/www/cloud_orchestrator && drush cron /dev/null 2>&1"; \
-    } | crontab -
+    echo "*/5 * * * * cd /var/www/cloud_orchestrator && drush cron /dev/null 2>&1"; \
+} | crontab -
 
 RUN set -eux; \
-  mkdir /var/www/cloud_orchestrator; \
-  mkdir /var/www/cloud_orchestrator/files; \
-  chown -R www-data:www-data /var/www/cloud_orchestrator/files; \
-  chmod -R g+w /var/www/cloud_orchestrator/files
+    mkdir /var/www/cloud_orchestrator; \
+    mkdir /var/www/cloud_orchestrator/files; \
+    chown -R www-data:www-data /var/www/cloud_orchestrator/files; \
+    chmod -R g+w /var/www/cloud_orchestrator/files
 
 EXPOSE 80
 WORKDIR /var/www/cloud_orchestrator
