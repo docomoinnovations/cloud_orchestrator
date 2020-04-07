@@ -44,7 +44,7 @@ RUN set -eux; \
 
     # Install Memcached
 	git clone https://github.com/php-memcached-dev/php-memcached /usr/src/php/ext/memcached \
-      && cd /usr/src/php/ext/memcached && git checkout -b php7 origin/php7 \
+      && cd /usr/src/php/ext/memcached \
       && docker-php-ext-configure memcached \
       && docker-php-ext-install memcached; \
 
