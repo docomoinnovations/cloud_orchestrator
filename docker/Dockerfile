@@ -16,7 +16,7 @@ RUN set -eux; \
 		libpng-dev \
 		libpq-dev \
 		libzip-dev \
-		libmemcached-dev
+		libmemcached-dev \
 		zlibc \
 		zlib1g \
 		git \
