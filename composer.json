@@ -71,7 +71,7 @@
     "require": {
         "hussainweb/drupal-composer-helper": "1.0.0-beta3",
         "aws/aws-sdk-php": "3.*.*@dev",
-        "maclof/kubernetes-client": "~0.15",
+        "maclof/kubernetes-client": "~0.15.0",
         "composer/installers": "^1.0",
         "drupal/admin_toolbar": "^2.0",
         "drupal/module_filter": "^3.1",
