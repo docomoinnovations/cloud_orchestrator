@@ -71,7 +71,7 @@
     "require": {
         "hussainweb/drupal-composer-helper": "1.0.0-beta3",
         "aws/aws-sdk-php": "3.*.*@dev",
-        "maclof/kubernetes-client": "~0.15.0",
+        "maclof/kubernetes-client": "~0.16.0",
         "composer/installers": "^1.0",
         "drupal/admin_toolbar": "^2.0",
         "drupal/module_filter": "^3.1",
@@ -89,7 +89,8 @@
         "drupal/bootstrap_cloud": "1.x-dev",
         "google/apiclient": "^2.4",
         "drupal/ctools": "^3.2",
-        "drupal/geocoder": "^3.1"
+        "drupal/geocoder": "^3.1",
+        "geocoder-php/nominatim-provider": "^5.2"
     },
     "require-dev": {
         "drupal/console": "~1.0"
