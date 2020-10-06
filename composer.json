@@ -70,27 +70,21 @@
     },
     "require": {
         "hussainweb/drupal-composer-helper": "1.0.0-beta3",
-        "aws/aws-sdk-php": "3.*.*@dev",
-        "maclof/kubernetes-client": "~0.16.0",
         "composer/installers": "^1.0",
         "drupal/admin_toolbar": "^2.0",
         "drupal/module_filter": "^3.1",
-        "drupal/cloud": "3.x",
+        "drupal/cloud": "3.x-dev",
         "drupal/ldap": "^3.0@beta",
         "drupal/copyright_footer": "^1.3",
         "drupal/login_destination": "^1.0@alpha",
         "drupal/authorization": "^1.0@beta",
         "drupal/externalauth": "^1.1",
         "drupal/bootstrap": "^3.20",
-        "drupal/cloud_orchestrator": "3.x",
+        "drupal/cloud_orchestrator": "3.x-dev",
         "drupal/panels": "^4.4",
         "drupal/page_manager": "^4.0@beta",
         "drush/drush": "^8",
-        "drupal/bootstrap_cloud": "1.x-dev",
-        "google/apiclient": "^2.4",
-        "drupal/ctools": "^3.2",
-        "drupal/geocoder": "^3.7",
-        "geocoder-php/nominatim-provider": "^5.2"
+        "drupal/ctools": "^3.2"
     },
     "require-dev": {
         "drupal/console": "~1.0"
