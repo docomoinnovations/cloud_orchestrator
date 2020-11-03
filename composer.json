@@ -36,8 +36,10 @@
         }
     },
     "extra": {
-        "drupal-composer-helper": {
-            "web-prefix": "docroot"
+        "drupal-scaffold": {
+            "locations": {
+                "web-root" : "docroot/"
+            }
         },
         "installer-paths": {
             "docroot/core": [
@@ -69,8 +71,10 @@
         }
     },
     "require": {
-        "hussainweb/drupal-composer-helper": "1.0.0-beta3",
-        "composer/installers": "^1.0",
+        "composer/installers": "^1.6",
+        "drupal/core-composer-scaffold": "^8.8",
+        "drupal/core-project-message": "^8.8",
+        "drupal/core-recommended": "^8.8",
         "drupal/admin_toolbar": "^2.0",
         "drupal/module_filter": "^3.1",
         "drupal/cloud": "3.x-dev",
@@ -83,10 +87,6 @@
         "drupal/cloud_orchestrator": "3.x-dev",
         "drupal/panels": "^4.4",
         "drupal/page_manager": "^4.0@beta",
-        "drush/drush": "^8",
-        "drupal/ctools": "^3.2"
-    },
-    "require-dev": {
-        "drupal/console": "~1.0"
+        "drupal/ctools": "^3.4"
     }
 }
