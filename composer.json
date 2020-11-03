@@ -87,6 +87,7 @@
         "drupal/cloud_orchestrator": "3.x-dev",
         "drupal/panels": "^4.4",
         "drupal/page_manager": "^4.0@beta",
-        "drupal/ctools": "^3.4"
+        "drupal/ctools": "^3.4",
+        "drush/drush": "^10.3"
     }
 }
