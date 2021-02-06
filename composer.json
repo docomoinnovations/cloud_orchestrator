@@ -78,7 +78,7 @@
         "drupal/core-recommended": "^9",
         "drupal/admin_toolbar": "*",
         "drupal/authorization": "^1.x-dev@dev",
-        "drupal/bootsrap_cloud": "*",
+        "drupal/bootstrap_cloud": "*",
         "drupal/cloud": "3.x-dev",
         "drupal/cloud_orchestrator": "3.x-dev",
         "drupal/copyright_footer": "*",
