@@ -1,6 +1,6 @@
 {
-    "name": "docomoinnovations/cloud_orchestrator",
-    "description": "Cloud orchestrator distribution by Docomo Innovations",
+    "name": "naoi/cloud_orchestrator",
+    "description": "Cloud orchestrator distribution by DOCOMO Innovations",
     "type": "drupal-profile",
     "license": "GPL-2.0-or-later",
     "minimum-stability": "dev",
