@@ -72,7 +72,7 @@
     },
     "require": {
         "composer/installers": "*",
-        "drupal-composer/drupal-security-advisories": "8.x-dev",
+        "drupal-composer/drupal-security-advisories": "*",
         "drupal/core-composer-scaffold": "^9",
         "drupal/core-project-message": "^9",
         "drupal/core-recommended": "^9",
