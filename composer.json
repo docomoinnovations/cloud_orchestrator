@@ -80,7 +80,7 @@
         "drupal/authorization": "^1.x-dev@dev",
         "drupal/bootstrap_cloud": "*",
         "drupal/cloud": "3.x-dev",
-        "drupal/cloud_orchestrator": "3.x-dev",
+        "naoi/cloud_orchestrator_distro": "3.x-dev",
         "drupal/copyright_footer": "*",
         "drupal/ctools": "*",
         "drupal/externalauth": "^1",
