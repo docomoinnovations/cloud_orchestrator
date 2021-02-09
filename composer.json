@@ -23,10 +23,9 @@
         "name": "drupal/cloud_orchestrator",
         "version": "dev-3.x",
         "type": "drupal-profile",
-        "source": {
-          "url": "git@git.drupal.org:project/cloud_orchestrator.git",
-          "type": "git",
-          "reference": "refs/heads/3.x"
+        "dist": {
+          "url": "https://ftp.drupal.org/files/projects/cloud_orchestrator-3.x-dev.zip",
+          "type": "zip"
         }
       }
     },
