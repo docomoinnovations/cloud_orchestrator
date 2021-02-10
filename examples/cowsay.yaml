@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: whalesay-pod
+  inputs:
+    parameters:
+    - name: message
+  container:
+    image: docker/whalesay
+    command: [cowsay]
+    args: ["{{inputs.parameters.message}}"]
