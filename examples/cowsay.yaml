@@ -6,6 +6,8 @@ metadata:
     parameters:
     - name: message
   container:
+spec:
+  containers:
     image: docker/whalesay
     command: [cowsay]
     args: ["{{inputs.parameters.message}}"]
