@@ -89,6 +89,7 @@
   },
   "require": {
     "composer/installers": "^1.6",
+    "cweagans/composer-patches": "~1.0",
     "drupal/core-composer-scaffold": "^9.1",
     "drupal/core-project-message": "^9.1",
     "drupal/core-recommended": "^9.1",
