@@ -53,6 +53,11 @@
         "web-root": "docroot/"
       }
     },
+    "patches": {
+      "drupal/page_load_progress": {
+        "Fixes path_alias.manager service call": "https://www.drupal.org/files/issues/2021-05-26/3188456-3.patch"
+      }
+    },
     "installer-paths": {
       "docroot/core": [
         "type:drupal-core"
@@ -101,6 +106,7 @@
     "drupal/page_manager": "^4.0@beta",
     "drupal/queue_ui": "^2.2",
     "drupal/ctools": "^3.4",
-    "drush/drush": "^10.3"
+    "drush/drush": "^10.3",
+    "drupal/page_load_progress": "^2.0"
   }
 }
