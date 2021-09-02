@@ -1,10 +1,10 @@
 # Cloud Orchestrator
 
-Cloud Orchestrator is a distribution for cloud administrators and operators.
-This distribution can manage resources from cloud providers such as AWS EC2, Kubernetes and OpenStack.
+[Cloud Orchestrator](https://cloud.airgap.host) is a Drupal cloud management distribution tailored for cloud administrators and operators.
 
-Out of the box, the distribution provides management for AWS EC2, Kubernetes(8.x-2.0), OpenStack(8.x-2.0),
-AWS VPC/Networking and granular user permissions.
+The distribution manages resources in public and private clouds. Version 4.x includes support for Amazon EC2 and Amazon VPC/Networking, Kubernetes, OpenStack, and Terraform.
+
+Distribution features include AWS and K8s dashboards, granular user permissions and unused resource notifications.
 
 Cloud Orchestrator's core functionality is built using the [Cloud module](https://www.drupal.org/project/cloud).
 
@@ -16,10 +16,10 @@ The recommended way to install Cloud Orchestrator is using Composer.
 composer create-project docomoinnovations/cloud_orchestrator cloud_orchestrator
 ```
 
-To try out 8.x-2.0 use the following command.
+To use 4.x use the following command.
 
 ```
-composer create-project docomoinnovations/cloud_orchestrator:8.2.0 cloud_orchestrator
+composer create-project docomoinnovations/cloud_orchestrator:4.x-dev cloud_orchestrator
 ```
 
 After the composer project is created, point your web server to `cloud_orchestrator/docroot`.  Then
@@ -36,6 +36,23 @@ the `SSHAccess` value under the `Outputs` tab.  Follow the build script progress
 
 When the script has completed, click on the `DrupalUrl` under the `Outputs` tab.  Follow the standard
 Drupal installation process.
+
+##  Video Resources
+
+__Cloud Orchesration Introduction__
+- [Cloud Orchestrator Introduction](https://www.youtube.com/watch?v=G-IOjrFZfRs)
+- [Multiple Cloud Orchestration Explained](https://www.youtube.com/watch?v=nhFVixLdFyU&t=25s)
+
+__Installation__
+- [Installing Cloud Orchestrator with Composer](https://www.youtube.com/watch?v=iryM7H-Xalw)
+- [Installing Cloud Orchestrator with Cloud Formation](https://www.youtube.com/watch?v=M-0mL-L0TyA)
+
+__Setting up EC2__
+- [Launching EC2 Instance](https://www.youtube.com/watch?v=Ukde63dIU0k)
+- [Create SSH Key Pair](https://www.youtube.com/watch?v=Kl0aJiqfBXk)
+- [Import AMI Image](https://www.youtube.com/watch?v=3wSRiA7QJbA)
+- [Create Launch Templates](https://www.youtube.com/watch?v=58wKMN7ROgw)
+- [Launch EC2 Instance](https://www.youtube.com/watch?v=gK1nKwpc16M)
 
 ##  Contributing
 
