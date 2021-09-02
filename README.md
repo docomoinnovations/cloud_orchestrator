@@ -50,7 +50,7 @@ __Installation__
 - [Installing Cloud Orchestrator with Composer](https://www.youtube.com/watch?v=iryM7H-Xalw)
 - [Installing Cloud Orchestrator with Cloud Formation](https://www.youtube.com/watch?v=M-0mL-L0TyA)
 
-__Setting up EC2__
+__Setting up EC2 in Cloud Orchestrator__
 - [Launching EC2 Instance](https://www.youtube.com/watch?v=Ukde63dIU0k)
 - [Create SSH Key Pair](https://www.youtube.com/watch?v=Kl0aJiqfBXk)
 - [Import AMI Image](https://www.youtube.com/watch?v=3wSRiA7QJbA)
