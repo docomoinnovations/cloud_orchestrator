@@ -4,9 +4,12 @@
 
 The distribution manages resources in public and private clouds. Version 4.x includes support for Amazon EC2 and Amazon VPC/Networking, Kubernetes, OpenStack, and Terraform.
 
-Distribution features include AWS and K8s dashboards, granular user permissions and unused resource notifications.
+Major features include
+- Multiple cloud support
+- Self service portal
+- Infrastructure insights
 
-Cloud Orchestrator's core functionality is built using the [Cloud module](https://www.drupal.org/project/cloud).
+Cloud Orchestrator's functionality is built using the [Cloud module](https://www.drupal.org/project/cloud).
 
 ## Installing Cloud Orchestrator using Composer
 
@@ -56,9 +59,9 @@ __Setting up EC2__
 
 ##  Contributing
 
-Issues are tracked on [drupal.org][issue_queue].  Please do not submit support requests through GitHub.
+Issues are tracked on [drupal.org].  Please do not submit support requests through GitHub.
 
-[issue_queue]:  https://www.drupal.org/project/issues/cloud_orchestrator "Cloud Orchestrator Issue Queue"
-[cloud_module]: https://www.drupal.org/project/cloud "Cloud module"
+- [Cloud Orchestrator issue queue](https://www.drupal.org/project/issues/cloud_orchestrator)
+- [Cloud module issue queue](https://www.drupal.org/project/cloud)
 
 ## Known Issues
