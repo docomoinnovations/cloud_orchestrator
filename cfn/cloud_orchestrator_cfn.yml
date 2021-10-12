@@ -463,7 +463,7 @@ Resources:
 
               # Basic package installation
               apt-get update -y
-              DEBIAN_FRONTEND=noninteractive apt-get upgrade -yq
+              DEBIAN_FRONTEND=noninteractive apt-get upgrade -yq --with-new-pkgs
 
               apt-get install -y python-pip python-setuptools mysql-client apache2 \
               zip unzip sendmail
