@@ -559,19 +559,38 @@ Resources:
               # After install setup cron
               { echo "*/5 * * * * cd /var/www/cloud_orchestrator && drush cron /dev/null 2>&1"; } | crontab -
 
+              # CFn helper script installation
+              cd /tmp
+              curl -O https://s3.amazonaws.com/cloudformation-examples/aws-cfn-bootstrap-1.4-33.tar.gz
+              cd /opt
+              tar zxvf /tmp/aws-cfn-bootstrap-1.4-33.tar.gz
+              cd aws-cfn-bootstrap-1.4
+              pip install -e .
+              ln -s $(pwd)/init/ubuntu/cfn-hup /etc/init.d/cfn-hup
+
+              # Send a success signal to CFn
+              /usr/local/bin/cfn-signal --exit-code=0  \
+                --resource=EC2 --stack=${CFnStackName} --region=${CFnStackRegion}
+
             - {
                 MySQLUserName: !Ref MySQLUserName,
                 MySQLPassword: !Ref MySQLPassword,
                 DatabaseEndpointAddress: !GetAtt RDS.Endpoint.Address,
                 DatabasePort: !GetAtt RDS.Endpoint.Port,
                 DatabaseName: !Ref DatabaseName,
-                CloudOrchestratorVersion: !Ref CloudOrchestratorVersion
+                CloudOrchestratorVersion: !Ref CloudOrchestratorVersion,
+                CFnStackName: !Ref AWS::StackName,
+                CFnStackRegion: !Ref AWS::Region
               }
       Tags:
         - Key: Application
           Value: !Ref 'AWS::StackName'
         - Key: Name
           Value: !Sub '${AWS::StackName} Drupal Instance'
+    CreationPolicy:
+      ResourceSignal:
+        Timeout: PT30M  # 30min
+        Count: 1
 Outputs:
   EC2InstanceName:
     Value: !Sub '${AWS::StackName} Drupal Instance'
