@@ -108,6 +108,7 @@
     "drupal/queue_ui": "^2.2",
     "drupal/ctools": "^3.4",
     "drush/drush": "^10.3",
-    "drupal/page_load_progress": "^2.0"
+    "drupal/page_load_progress": "^2.0",
+    "drupal/memcache": "^2.3"
   }
 }
