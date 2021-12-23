@@ -45,6 +45,11 @@
   "config": {
     "preferred-install": {
       "drupal/core": "dist"
+    },
+    "allow-plugins": {
+      "composer/*": true,
+      "cweagans/composer-patches": true,
+      "drupal/*": true
     }
   },
   "extra": {
