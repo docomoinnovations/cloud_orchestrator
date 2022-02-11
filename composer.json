@@ -21,10 +21,10 @@
       "type": "package",
       "package": {
         "name": "drupal/cloud_orchestrator",
-        "version": "dev-4.x",
+        "version": "dev-5.x",
         "type": "drupal-profile",
         "dist": {
-          "url": "https://ftp.drupal.org/files/projects/cloud_orchestrator-4.x-dev.zip",
+          "url": "https://ftp.drupal.org/files/projects/cloud_orchestrator-5.x-dev.zip",
           "type": "zip"
         }
       }
@@ -100,14 +100,14 @@
     "drupal/core-recommended": "^9.1",
     "drupal/admin_toolbar": "^3.0",
     "drupal/module_filter": "^3.2",
-    "drupal/cloud": "4.x-dev",
+    "drupal/cloud": "5.x-dev",
     "drupal/ldap": "^4.0@beta",
     "drupal/copyright_footer": "^1.7",
     "drupal/login_destination": "^2.0@beta",
     "drupal/authorization": "^1.0@beta",
     "drupal/externalauth": "^1.3",
     "drupal/bootstrap": "^3.23",
-    "drupal/cloud_orchestrator": "dev-4.x",
+    "drupal/cloud_orchestrator": "dev-5.x",
     "drupal/panels": "^4.6",
     "drupal/page_manager": "^4.0@beta",
     "drupal/queue_ui": "^2.2",
