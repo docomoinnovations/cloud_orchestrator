@@ -1,96 +1,113 @@
 {
-    "name": "naoi/cloud_orchestrator",
-    "description": "Cloud orchestrator distribution by DOCOMO Innovations",
-    "type": "drupal-profile",
-    "license": "GPL-2.0-or-later",
-    "minimum-stability": "dev",
-    "prefer-stable": true,
-    "authors": [
-        {
-            "name": "Docomo Innovations",
-            "homepage": "https://www.docomoinnovations.com",
-            "role": "Maintainer"
-        }
-    ],
-    "support": {
-        "issues": "http://drupal.org/project/issues/cloud_orchestrator",
-        "source": "http://cgit.drupalcode.org/cloud_orchestrator"
-    },
-    "repositories": {
-        "drupal": {
-            "type": "composer",
-            "url": "https://packages.drupal.org/8"
-        },
-        "assets": {
-            "type": "composer",
-            "url": "https://asset-packagist.org"
-        },
-        "dev": {
-            "type": "github",
-            "url": "https://github.com/docomoinnovations/cloud_orchestrator"
-        }
-    },
-    "config": {
-        "preferred-install": {
-            "drupal/core": "dist"
-        }
-    },
-    "extra": {
-        "drupal-scaffold": {
-            "locations": {
-                "web-root" : "docroot/"
-            }
-        },
-        "installer-paths": {
-            "docroot/core": [
-                "type:drupal-core"
-            ],
-            "docroot/profiles/contrib/{$name}": [
-                "type:drupal-profile"
-            ],
-            "docroot/modules/contrib/{$name}": [
-                "type:drupal-module"
-            ],
-            "docroot/themes/contrib/{$name}": [
-                "type:drupal-theme"
-            ],
-            "docroot/libraries/{$name}": [
-                "type:drupal-library",
-                "type:bower-asset",
-                "type:npm-asset"
-            ],
-            "docroot/modules/custom/{$name}": [
-                "type:drupal-custom-module"
-            ],
-            "docroot/themes/custom/{$name}": [
-                "type:drupal-custom-theme"
-            ],
-            "drush/contrib/{$name}": [
-                "type:drupal-drush"
-            ]
-        }
-    },
-    "require": {
-        "composer/installers": "*",
-        "drupal-composer/drupal-security-advisories": "*",
-        "drupal/core-composer-scaffold": "^9",
-        "drupal/core-project-message": "^9",
-        "drupal/core-recommended": "^9",
-        "drupal/admin_toolbar": "*",
-        "drupal/authorization": "^1.x-dev@dev",
-        "drupal/bootstrap_cloud": "*",
-        "drupal/cloud": "3.x-dev",
-        "sandbox/yas-3196969": "3.x-dev",
-        "drupal/copyright_footer": "*",
-        "drupal/ctools": "*",
-        "drupal/externalauth": "^1",
-        "drupal/ldap": "^4.x-dev@dev",
-        "drupal/login_destination": "^2.x-dev",
-        "drupal/memcache": "^2.2", 
-        "drupal/module_filter": "^3.x-dev@dev",
-        "drupal/panels": "^4.4",
-        "drupal/page_manager": "^4.0@beta",
-        "drupal/queue_ui": "*",
-        "drush/drush": "*"
+  "name": "docomoinnovations/cloud_orchestrator",
+  "description": "Cloud orchestrator distribution by Docomo Innovations",
+  "type": "drupal-profile",
+  "license": "GPL-2.0-or-later",
+  "minimum-stability": "dev",
+  "prefer-stable": true,
+  "authors": [
+    {
+      "name": "Docomo Innovations",
+      "homepage": "https://www.docomoinnovations.com",
+      "role": "Maintainer"
     }
+  ],
+  "support": {
+    "issues": "http://drupal.org/project/issues/cloud_orchestrator",
+    "source": "http://cgit.drupalcode.org/cloud_orchestrator"
+  },
+  "repositories": {
+    "cloud_orchestrator": {
+      "type": "package",
+      "package": {
+        "name": "drupal/cloud_orchestrator",
+        "version": "dev-3.x",
+        "type": "drupal-profile",
+        "dist": {
+          "url": "https://ftp.drupal.org/files/projects/cloud_orchestrator-3.x-dev.zip",
+          "type": "zip"
+        }
+      }
+    },
+    "drupal": {
+      "type": "composer",
+      "url": "https://packages.drupal.org/8"
+    },
+    "assets": {
+      "type": "composer",
+      "url": "https://asset-packagist.org"
+    },
+    "dev": {
+      "type": "github",
+      "url": "https://github.com/docomoinnovations/cloud_orchestrator"
+    }
+  },
+  "config": {
+    "preferred-install": {
+      "drupal/core": "dist"
+    }
+  },
+  "extra": {
+    "drupal-scaffold": {
+      "locations": {
+        "web-root": "docroot/"
+      }
+    },
+    "patches": {
+      "drupal/page_load_progress": {
+        "Fixes path_alias.manager service call": "https://www.drupal.org/files/issues/2021-05-26/3188456-3.patch"
+      }
+    },
+    "installer-paths": {
+      "docroot/core": [
+        "type:drupal-core"
+      ],
+      "docroot/profiles/contrib/{$name}": [
+        "type:drupal-profile"
+      ],
+      "docroot/modules/contrib/{$name}": [
+        "type:drupal-module"
+      ],
+      "docroot/themes/contrib/{$name}": [
+        "type:drupal-theme"
+      ],
+      "docroot/libraries/{$name}": [
+        "type:drupal-library",
+        "type:bower-asset",
+        "type:npm-asset"
+      ],
+      "docroot/modules/custom/{$name}": [
+        "type:drupal-custom-module"
+      ],
+      "docroot/themes/custom/{$name}": [
+        "type:drupal-custom-theme"
+      ],
+      "drush/contrib/{$name}": [
+        "type:drupal-drush"
+      ]
+    }
+  },
+  "require": {
+    "composer/installers": "^1.6",
+    "cweagans/composer-patches": "~1.0",
+    "drupal/core-composer-scaffold": "^9.1",
+    "drupal/core-project-message": "^9.1",
+    "drupal/core-recommended": "^9.1",
+    "drupal/admin_toolbar": "^3.0",
+    "drupal/module_filter": "^3.2",
+    "drupal/cloud": "3.x-dev",
+    "drupal/ldap": "^4.0@beta",
+    "drupal/copyright_footer": "^1.7",
+    "drupal/login_destination": "^2.0@beta",
+    "drupal/authorization": "^1.0@beta",
+    "drupal/externalauth": "^1.3",
+    "drupal/bootstrap": "^3.23",
+    "drupal/cloud_orchestrator": "dev-3.x",
+    "drupal/panels": "^4.6",
+    "drupal/page_manager": "^4.0@beta",
+    "drupal/queue_ui": "^2.2",
+    "drupal/ctools": "^3.4",
+    "drush/drush": "^10.3",
+    "drupal/page_load_progress": "^2.0"
+  }
 }
