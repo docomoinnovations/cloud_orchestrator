@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: cowsay-deployment
+  labels:
+    app: cowsay
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: cowsay
+  template:
+    metadata:
+      labels:
+        app: cowsay
+    spec:
+      containers:
+      - name: cowsay
+        image: docomoinnovations/cloud_orchestrator:cowsay
+        restartPolicy: Never
