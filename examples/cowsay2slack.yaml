@@ -4,6 +4,9 @@ metadata:
   name: cowsay2slack-pod
 spec:
   containers:
-  - name: cowsay
+  - name: cowsay2slack
     image: docomoinnovations/cloud_orchestrator:cowsay2slack
+    env:
+    - name: TOKEN
+      value: {{TOKEN}}
   restartPolicy: Never
