@@ -1,0 +1,20 @@
+piVersion: apps/v1
+kind: Deployment
+metadata:
+  name: cowsay2slack-deployment
+  labels:
+    app: cowsay
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: cowsay
+  template:
+    metadata:
+      labels:
+        app: cowsay
+    spec:
+      containers:
+      - name: cowsay
+        image: docomoinnovations/cloud_orchestrator:cowsay2slack
+        restartPolicy: Never
