@@ -6,4 +6,7 @@ spec:
   containers:
   - name: cowsay
     image: docomoinnovations/cloud_orchestrator:cowsay
+    env:
+    - name: TOKEN
+      value: {{TOKEN}}
   restartPolicy: Never
