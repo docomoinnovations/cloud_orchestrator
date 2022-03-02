@@ -3,18 +3,21 @@ kind: Deployment
 metadata:
   name: cowsay2slack-deployment
   labels:
-    app: cowsay
+    app: cowsay2slack
 spec:
   replicas: 2
   selector:
     matchLabels:
-      app: cowsay
+      app: cowsay2slack
   template:
     metadata:
       labels:
-        app: cowsay
+        app: cowsay2slack
     spec:
       containers:
-      - name: cowsay
+      - name: cowsay2slack
         image: docomoinnovations/cloud_orchestrator:cowsay2slack
+        env:
+        - name: TOKEN
+          value: {{TOKEN}}
         restartPolicy: Never
