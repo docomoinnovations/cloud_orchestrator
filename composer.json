@@ -118,9 +118,9 @@
   },
   "autoload-dev": {
     "psr-4": {
-      "Drupal\\Tests\\cloud\\Behat\\": "docroot/modules/contrib/cloud/tests/src/Behat",
-      "Drupal\\Tests\\aws_cloud\\Behat\\": "docroot/modules/contrib/cloud/modules/cloud_service_providers/aws_cloud/tests/src/Behat",
-      "Drupal\\Tests\\k8s\\Behat\\": "docroot/modules/contrib/cloud/modules/cloud_service_providers/k8s/tests/src/Behat"
+      "Drupal\\Tests\\cloud\\": "docroot/modules/contrib/cloud/tests/src/",
+      "Drupal\\Tests\\aws_cloud\\": "docroot/modules/contrib/cloud/modules/cloud_service_providers/aws_cloud/tests/src/",
+      "Drupal\\Tests\\k8s\\": "docroot/modules/contrib/cloud/modules/cloud_service_providers/k8s/tests/src/"
     }
   }
 }
