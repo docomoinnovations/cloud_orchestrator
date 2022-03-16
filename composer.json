@@ -115,5 +115,12 @@
     "drush/drush": "^10.3",
     "drupal/page_load_progress": "^2.0",
     "drupal/memcache": "^2.3"
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Drupal\\Tests\\cloud\\Behat\\": "docroot/modules/contrib/cloud/tests/src/Behat",
+      "Drupal\\Tests\\aws_cloud\\Behat\\": "docroot/modules/contrib/cloud/modules/cloud_service_providers/aws_cloud/tests/src/Behat",
+      "Drupal\\Tests\\k8s\\Behat\\": "docroot/modules/contrib/cloud/modules/cloud_service_providers/k8s/tests/src/Behat"
+    }
   }
 }
