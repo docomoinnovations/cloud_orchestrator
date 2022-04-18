@@ -33,10 +33,6 @@
       "type": "composer",
       "url": "https://packages.drupal.org/8"
     },
-    "assets": {
-      "type": "composer",
-      "url": "https://asset-packagist.org"
-    },
     "dev": {
       "type": "github",
       "url": "https://github.com/docomoinnovations/cloud_orchestrator"
