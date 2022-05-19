@@ -91,9 +91,9 @@
   "require": {
     "composer/installers": "^1.6",
     "cweagans/composer-patches": "~1.0",
-    "drupal/core-composer-scaffold": "^9.1",
-    "drupal/core-project-message": "^9.1",
-    "drupal/core-recommended": "^9.1",
+    "drupal/core-composer-scaffold": "^9.3",
+    "drupal/core-project-message": "^9.3",
+    "drupal/core-recommended": "^9.3",
     "drupal/admin_toolbar": "^3.0",
     "drupal/module_filter": "^3.2",
     "drupal/cloud": "5.x-dev",
