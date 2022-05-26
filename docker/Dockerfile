@@ -1,5 +1,5 @@
 # Cloud Orchestrator Dockerfile
-FROM php:7.3-apache-stretch
+FROM php:8.0-apache-bullseye
 
 RUN set -eux; \
 	\
@@ -17,22 +17,20 @@ RUN set -eux; \
 		libpq-dev \
 		libzip-dev \
 		libmemcached-dev \
-		zlibc \
 		zlib1g \
 		git \
 		zip \
 		unzip \
-		mysql-client \
+		mariadb-client \
 		cron \
 	; \
 	\
 	docker-php-ext-configure gd \
-		--with-freetype-dir=/usr \
-		--with-jpeg-dir=/usr \
-		--with-png-dir=/usr \
+    --with-freetype \
+    --with-jpeg \
 	; \
 	\
-	docker-php-ext-configure zip --with-libzip; \
+	docker-php-ext-configure zip; \
 
 	docker-php-ext-install -j "$(nproc)" \
 		gd \
@@ -54,7 +52,7 @@ RUN set -eux; \
     # Install Drush
     git clone https://github.com/drush-ops/drush.git /usr/local/src/drush; \
 
-    cd /usr/local/src/drush && git checkout 9.7.1; \
+    cd /usr/local/src/drush && git checkout 10.x; \
     ln -s /usr/local/src/drush/drush /usr/local/bin/drush; \
  	composer install
 
@@ -87,12 +85,8 @@ RUN set -eux; \
 	\
     # Unlink default apache configurations
     a2dissite 000-default; \
-	a2dissite default-ssl.conf; \
+	  a2dissite default-ssl.conf; \
     a2ensite cloud_orchestrator
-
-RUN { \
-    echo "*/5 * * * * cd /var/www/cloud_orchestrator && drush cron /dev/null 2>&1"; \
-} | crontab -
 
 RUN set -eux; \
     mkdir /var/www/cloud_orchestrator; \
