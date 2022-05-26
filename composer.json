@@ -106,8 +106,6 @@
     "drupal/memcache": "^2.3",
     "drupal/module_filter": "^3.2",
     "drupal/page_load_progress": "^2.0",
-    "drupal/page_manager": "^4.0@beta",
-    "drupal/panels": "^4.6",
     "drupal/queue_ui": "^2.2",
     "drush/drush": "^10.3"
   },
