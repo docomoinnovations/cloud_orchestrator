@@ -19,10 +19,10 @@ The recommended way to install Cloud Orchestrator is using Composer.
 composer create-project docomoinnovations/cloud_orchestrator cloud_orchestrator
 ```
 
-To use 5.x use the following command.
+To use 5.0.0-alpha2 use the following command.
 
 ```
-composer create-project docomoinnovations/cloud_orchestrator:5.x-dev cloud_orchestrator
+composer create-project docomoinnovations/cloud_orchestrator:5.0.0-alpha2 cloud_orchestrator
 ```
 
 After the composer project is created, point your web server to `cloud_orchestrator/docroot`.  Then
