@@ -65,3 +65,7 @@ Issues are tracked on [drupal.org].  Please do not submit support requests throu
 - [Cloud module issue queue](https://www.drupal.org/project/cloud)
 
 ## Known Issues
+
+## License
+
+Cloud Orchestrator is released under the terms of the [GPLv2 license](https://www.gnu.org/licenses/old-licenses/gpl-2.0.en.html#SEC1).
