@@ -91,23 +91,23 @@
   "require": {
     "composer/installers": "^1.12",
     "cweagans/composer-patches": "^1.7",
-    "drupal/core-composer-scaffold": "^9.4",
-    "drupal/core-project-message": "^9.4",
-    "drupal/core-recommended": "^9.4",
-    "drupal/admin_toolbar": "^3.1",
+    "drupal/core-composer-scaffold": "^9.5.x-dev",
+    "drupal/core-project-message": "^9.5.x-dev",
+    "drupal/core-recommended": "^9.5.x-dev",
+    "drupal/admin_toolbar": "^3.2",
     "drupal/authorization": "^1.0@beta",
     "drupal/cloud": "5.x-dev",
     "drupal/cloud_orchestrator": "dev-5.x",
     "drupal/copyright_footer": "^2.0",
-    "drupal/ctools": "^3.7",
-    "drupal/externalauth": "^1.4",
+    "drupal/ctools": "^3.11",
+    "drupal/externalauth": "^2",
     "drupal/ldap": "^4.3",
     "drupal/login_destination": "^2.0@beta",
-    "drupal/memcache": "^2.3",
+    "drupal/memcache": "^2.5",
     "drupal/module_filter": "^3.2",
     "drupal/page_load_progress": "^2.0",
-    "drupal/queue_ui": "^2.2",
-    "drush/drush": "^10.3"
+    "drupal/queue_ui": "^3.1",
+    "drush/drush": "^11.3"
   },
   "autoload-dev": {
     "psr-4": {
