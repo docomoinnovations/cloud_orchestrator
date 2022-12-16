@@ -1,0 +1,36 @@
+description: sample heat for neutron
+heat_template_version: '2013-05-23'
+outputs:
+  status:
+    description: status of sample_net
+    value:
+      get_attr:
+      - sample_net
+      - status
+parameters:
+  sample_net_name:
+    default: sample_network
+    description: Name of Sample network to be created
+    type: string
+  sample_net_name1:
+    default: 1
+    description: Name of Sample network to be created
+    type: number
+  sample_net_name2:
+    default: ['one', “two”]
+    description: Name of Sample network to be created
+    type: comma_delimited_list
+  sample_net_name3:
+    default: {“key”: “value”}
+    description: Name of Sample network to be created
+    type: json
+  sample_net_name4:
+    default: "on"
+    description: Name of Sample network to be created
+    type: boolean
+resources:
+  sample_net:
+    properties:
+      name:
+        get_param: sample_net_name
+    type: OS::Neutron::Net
