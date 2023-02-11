@@ -45,7 +45,8 @@
     "allow-plugins": {
       "composer/*": true,
       "cweagans/composer-patches": true,
-      "drupal/*": true
+      "drupal/*": true,
+      "php-http/discovery": true
     }
   },
   "extra": {
