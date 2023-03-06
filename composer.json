@@ -100,6 +100,7 @@
     "drupal/cloud_orchestrator": "dev-5.x",
     "drupal/copyright_footer": "^2.0",
     "drupal/ctools": "^3.11",
+    "drupal/facade": "1.0.x-dev",
     "drupal/ldap": "^4.3",
     "drupal/login_destination": "^2.0@beta",
     "drupal/memcache": "^2.5",
