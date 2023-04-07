@@ -21,10 +21,10 @@
       "type": "package",
       "package": {
         "name": "drupal/cloud_orchestrator",
-        "version": "dev-5.x",
+        "version": "dev-6.x",
         "type": "drupal-profile",
         "dist": {
-          "url": "https://ftp.drupal.org/files/projects/cloud_orchestrator-5.x-dev.zip",
+          "url": "https://ftp.drupal.org/files/projects/cloud_orchestrator-6.x-dev.zip",
           "type": "zip"
         }
       }
@@ -96,8 +96,8 @@
     "drupal/core-project-message": "^9.5.x-dev",
     "drupal/core-recommended": "^9.5.x-dev",
     "drupal/admin_toolbar": "^3.2",
-    "drupal/cloud": "5.x-dev",
-    "drupal/cloud_orchestrator": "dev-5.x",
+    "drupal/cloud": "6.x-dev",
+    "drupal/cloud_orchestrator": "dev-6.x",
     "drupal/copyright_footer": "^2.0",
     "drupal/ctools": "^3.11",
     "drupal/facade": "1.0.x-dev",
