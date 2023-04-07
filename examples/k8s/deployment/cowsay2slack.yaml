@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: cowsay2slack-pod
+spec:
+  containers:
+  - name: cowsay2slack
+    image: docomoinnovations/cloud_orchestrator:cowsay2slack
+    env:
+    - name: TOKEN
+      value: {{TOKEN}}
+  restartPolicy: Never
