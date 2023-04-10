@@ -90,24 +90,24 @@
     }
   },
   "require": {
-    "composer/installers": "^1.12",
-    "cweagans/composer-patches": "^1.7",
-    "drupal/core-composer-scaffold": "^9.5.x-dev",
-    "drupal/core-project-message": "^9.5.x-dev",
-    "drupal/core-recommended": "^9.5.x-dev",
-    "drupal/admin_toolbar": "^3.2",
+    "composer/installers": "^1",
+    "cweagans/composer-patches": "^1",
+    "drupal/core-composer-scaffold": "^10.0.x-dev",
+    "drupal/core-project-message": "^10.0.x-dev",
+    "drupal/core-recommended": "^10.0.x-dev",
+    "drupal/admin_toolbar": "^3",
     "drupal/cloud": "6.x-dev",
     "drupal/cloud_orchestrator": "dev-6.x",
-    "drupal/copyright_footer": "^2.0",
-    "drupal/ctools": "^3.11",
+    "drupal/copyright_footer": "^3",
+    "drupal/ctools": "^4",
     "drupal/facade": "1.0.x-dev",
-    "drupal/ldap": "^4.3",
+    "drupal/ldap": "4.x-dev",
     "drupal/login_destination": "^2.0@beta",
-    "drupal/memcache": "^2.5",
-    "drupal/module_filter": "^3.2",
-    "drupal/page_load_progress": "^2.0",
-    "drupal/queue_ui": "^3.1",
-    "drush/drush": "^11.3"
+    "drupal/memcache": "^2",
+    "drupal/module_filter": "^4",
+    "drupal/page_load_progress": "^2",
+    "drupal/queue_ui": "^3",
+    "drush/drush": "^11"
   },
   "autoload-dev": {
     "psr-4": {
