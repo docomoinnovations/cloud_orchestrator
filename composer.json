@@ -57,8 +57,9 @@
     },
     "patches": {
       "drupal/page_load_progress": {
-        "Fixes path_alias.manager service call": "https://www.drupal.org/files/issues/2020-07-02/page_load_progress.1.x-dev.rector-3148328-4.patch"
-      }
+        "Fixes path_alias.manager service call": "https://www.drupal.org/files/issues/2020-07-02/page_load_progress.1.x-dev.rector-3148328-4.patch",
+        "Automated Drupal 10 compatibility fixes": "https://www.drupal.org/files/issues/2022-08-22/page_load_progress.2.0.0.rector.patch"
+        }
     },
     "installer-paths": {
       "docroot/core": [
