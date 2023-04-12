@@ -5,7 +5,7 @@ distribution tailored for cloud administrators and operators.
 
 The distribution manages resources in public and private clouds. Version 6.x
 includes support for Amazon EC2 and Amazon VPC/Networking, Kubernetes,
-OpenStack, and Terraform.
+OpenStack, VMware and Terraform.
 
 Major features include
 - Multiple cloud support
@@ -68,11 +68,11 @@ __Setting up EC2 in Cloud Orchestrator__
 Issues are tracked on [drupal.org].  Please do not submit support requests through GitHub.
 
 - [Cloud Orchestrator issue queue](https://www.drupal.org/project/issues/cloud_orchestrator)
-- [Cloud module issue queue](https://www.drupal.org/project/cloud)
+- [Cloud module issue queue](https://www.drupal.org/project/cloud)``
 
 ## Known Issues
 
 ## License
 
-Cloud Orchestrator is released under the terms of the 
+Cloud Orchestrator is released under the terms of the ``
 [GPLv2 license](https://www.gnu.org/licenses/old-licenses/gpl-2.0.en.html#SEC1).
