@@ -1,15 +1,19 @@
 # Cloud Orchestrator
 
-[Cloud Orchestrator](https://cloud.airgap.host) is a Drupal cloud management distribution tailored for cloud administrators and operators.
+[Cloud Orchestrator](https://cloud.airgap.host) is a Drupal cloud management
+distribution tailored for cloud administrators and operators.
 
-The distribution manages resources in public and private clouds. Version 5.x includes support for Amazon EC2 and Amazon VPC/Networking, Kubernetes, OpenStack, and Terraform.
+The distribution manages resources in public and private clouds. Version 6.x
+includes support for Amazon EC2 and Amazon VPC/Networking, Kubernetes,
+OpenStack, and Terraform.
 
 Major features include
 - Multiple cloud support
 - Self service portal
 - Infrastructure insights
 
-Cloud Orchestrator's functionality is built using the [Cloud module](https://www.drupal.org/project/cloud).
+Cloud Orchestrator's functionality is built using the [Cloud module]
+(https://www.drupal.org/project/cloud).
 
 ## Installing Cloud Orchestrator using Composer
 
@@ -22,23 +26,25 @@ composer create-project docomoinnovations/cloud_orchestrator cloud_orchestrator
 To use 6.x use the following command.
 
 ```
-composer create-project docomoinnovations/cloud_orchestrator:5.x-dev cloud_orchestrator
+composer create-project docomoinnovations/cloud_orchestrator:6.x-dev cloud_orchestrator
 ```
 
-After the composer project is created, point your web server to `cloud_orchestrator/docroot`.  Then
-run the normal Drupal installer.
+After the composer project is created, point your web server to
+`cloud_orchestrator/docroot`.  Then  run the normal Drupal installer.
 
 ## Installing Cloud Orchestrator using AWS CloudFormation template
 
-Alternatively, you can use the [AWS CloudFormation Template](https://cloud-orchestrator.s3.amazonaws.com/cfn/cloud_orchestrator_single.yaml) to launch
-the Cloud Orchestrator stack on AWS EC2.
+Alternatively, you can use the [AWS CloudFormation Template]
+(https://cloud-orchestrator.s3.amazonaws.com/cfn/cloud_orchestrator_single.yaml) 
+to launch the Cloud Orchestrator stack on AWS EC2.
 
-After the stack is built, check that the build script has completed by logging into your instance with SSH using
-the `SSHAccess` value under the `Outputs` tab.  Follow the build script progress with
-`tail -f /var/log/cloud-init-output.log`.  The build script takes about 10 minutes to complete.
+After the stack is built, check that the build script has completed by logging
+into your instance with SSH using the `SSHAccess` value under the `Outputs` tab.
+Follow the build script progress with `tail -f /var/log/cloud-init-output.log`.
+The build script takes about 10 minutes to complete.
 
-When the script has completed, click on the `DrupalUrl` under the `Outputs` tab.  Follow the standard
-Drupal installation process.
+When the script has completed, click on the `DrupalUrl` under the `Outputs` tab.
+Follow the standard Drupal installation process.
 
 ##  Video Resources
 
@@ -68,4 +74,5 @@ Issues are tracked on [drupal.org].  Please do not submit support requests throu
 
 ## License
 
-Cloud Orchestrator is released under the terms of the [GPLv2 license](https://www.gnu.org/licenses/old-licenses/gpl-2.0.en.html#SEC1).
+Cloud Orchestrator is released under the terms of the 
+[GPLv2 license](https://www.gnu.org/licenses/old-licenses/gpl-2.0.en.html#SEC1).
