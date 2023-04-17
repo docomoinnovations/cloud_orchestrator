@@ -55,11 +55,6 @@
         "web-root": "docroot/"
       }
     },
-    "patches": {
-      "drupal/page_load_progress": {
-        "Fixes path_alias.manager service call": "https://www.drupal.org/files/issues/2020-07-02/page_load_progress.1.x-dev.rector-3148328-4.patch"
-      }
-    },
     "installer-paths": {
       "docroot/core": [
         "type:drupal-core"
@@ -92,12 +87,12 @@
   "require": {
     "composer/installers": "^1",
     "cweagans/composer-patches": "^1",
-    "drupal/core-composer-scaffold": "^10.0.x-dev",
-    "drupal/core-project-message": "^10.0.x-dev",
-    "drupal/core-recommended": "^10.0.x-dev",
+    "drupal/core-composer-scaffold": "10.0.x-dev",
+    "drupal/core-project-message": "10.0.x-dev",
+    "drupal/core-recommended": "10.0.x-dev",
     "drupal/admin_toolbar": "^3",
     "drupal/cloud": "6.x-dev",
-    "drupal/cloud_orchestrator": "dev-6.x",
+    "drupal/cloud_orchestrator": "6.x-dev",
     "drupal/copyright_footer": "^3",
     "drupal/ctools": "^4",
     "drupal/facade": "1.0.x-dev",
@@ -106,6 +101,7 @@
     "drupal/memcache": "^2",
     "drupal/module_filter": "^4",
     "drupal/queue_ui": "^3",
+    "drupal/simple_oauth": "^5",
     "drush/drush": "^11"
   },
   "autoload-dev": {
