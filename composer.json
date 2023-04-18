@@ -106,7 +106,8 @@
   },
   "require-dev": {
     "dmore/behat-chrome-extension": "*",
-    "docomoinnovations/drupal-extension": "6.x-dev"
+    "docomoinnovations/drupal-extension": "6.x-dev",
+    "drupal/coder": "*"
   },
   "autoload-dev": {
     "psr-4": {
