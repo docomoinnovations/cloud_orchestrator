@@ -1,6 +1,6 @@
 {
   "name": "docomoinnovations/cloud_orchestrator",
-  "description": "Cloud orchestrator distribution by Docomo Innovations",
+  "description": "Cloud orchestrator distribution by DOCOMO Innovations",
   "type": "drupal-profile",
   "license": "GPL-2.0-or-later",
   "minimum-stability": "dev",
@@ -112,12 +112,12 @@
   },
   "autoload-dev": {
     "psr-4": {
-      "Drupal\\Tests\\cloud\\": "docroot/modules/contrib/cloud/tests/src/",
       "Drupal\\Tests\\aws_cloud\\": "docroot/modules/contrib/cloud/modules/cloud_service_providers/aws_cloud/tests/src/",
+      "Drupal\\Tests\\cloud\\": "docroot/modules/contrib/cloud/tests/src/",
       "Drupal\\Tests\\k8s\\": "docroot/modules/contrib/cloud/modules/cloud_service_providers/k8s/tests/src/",
       "Drupal\\Tests\\openstack\\": "docroot/modules/contrib/cloud/modules/cloud_service_providers/openstack/tests/src/",
+      "Drupal\\Tests\\terraform\\": "docroot/modules/contrib/cloud/modules/cloud_service_providers/terraform/tests/src/",
       "Drupal\\Tests\\vmware\\": "docroot/modules/contrib/cloud/modules/cloud_service_providers/vmware/tests/src/",
-      "Drupal\\Tests\\terraform\\": "docroot/modules/contrib/cloud/modules/cloud_service_providers/terraform/tests/src/"
     }
   }
 }
