@@ -88,9 +88,9 @@
   "require": {
     "composer/installers": "^1",
     "cweagans/composer-patches": "^1",
-    "drupal/core-composer-scaffold": "^10.1.x-dev",
-    "drupal/core-project-message": "^10.1.x-dev",
-    "drupal/core-recommended": "^10.1.x-dev",
+    "drupal/core-composer-scaffold": "10.0.x-dev",
+    "drupal/core-project-message": "10.0.x-dev",
+    "drupal/core-recommended": "10.0.x-dev",
     "drupal/admin_toolbar": "^3",
     "drupal/cloud": "6.x-dev",
     "drupal/cloud_orchestrator": "dev-6.x",
@@ -101,6 +101,7 @@
     "drupal/login_destination": "^2.0@beta",
     "drupal/memcache": "^2",
     "drupal/module_filter": "^4",
+    "drupal/openid_connect": "3.x-dev",
     "drupal/queue_ui": "^3",
     "drupal/simple_oauth": "^5",
     "drush/drush": "^11"
