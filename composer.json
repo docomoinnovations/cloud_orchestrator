@@ -58,7 +58,7 @@
     },
     "patches": {
       "drupal/memcache": {
-        "Fixes 'variable type is integer but applied schema class is Drupal\\Core\\TypedData\\Plugin\\DataType\\BooleanData'": "https://git.drupalcode.org/project/memcache/-/merge_requests/14.diff"
+        "Fixes an issue at https://www.drupal.org/i/3355505": "https://git.drupalcode.org/project/memcache/-/merge_requests/14.diff"
       }
     },
     "installer-paths": {
