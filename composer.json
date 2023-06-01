@@ -106,6 +106,7 @@
     "drupal/login_destination": "^2.0@beta",
     "drupal/memcache": "^2",
     "drupal/module_filter": "^4",
+    "drupal/module_permissions": "^3",
     "drupal/openid_connect": "3.x-dev",
     "drupal/queue_ui": "^3",
     "drupal/roleassign": "^2",
