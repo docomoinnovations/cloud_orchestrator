@@ -111,7 +111,7 @@
     "drupal/queue_ui": "^3",
     "drupal/roleassign": "^2",
     "drupal/simple_oauth": "^5",
-    "drush/drush": "^12"
+    "drush/drush": "^11"
   },
   "require-dev": {
     "dmore/behat-chrome-extension": "*",
