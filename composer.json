@@ -107,7 +107,6 @@
     "drupal/memcache": "^2",
     "drupal/module_filter": "^4",
     "drupal/module_permissions": "^3",
-    "drupal/openid_connect": "3.x-dev",
     "drupal/openid_connect_daccount": "1.x-dev@dev",
     "drupal/password_policy": "^4",
     "drupal/queue_ui": "^3",
