@@ -101,6 +101,7 @@
     "drupal/cloud_orchestrator": "dev-6.x",
     "drupal/copyright_footer": "^3",
     "drupal/ctools": "^4",
+    "drupal/openid_connect_daccount": "1.x-dev@dev",
     "drupal/facade": "1.0.x-dev",
     "drupal/ldap": "4.x-dev",
     "drupal/login_destination": "^2.0@beta",
