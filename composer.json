@@ -110,10 +110,10 @@
     "drupal/openid_connect_daccount": "1.x-dev@dev",
     "drupal/password_policy": "^4",
     "drupal/queue_ui": "^3",
-    "drupal/real_aes": "^2.5", 
+    "drupal/real_aes": "^2", 
     "drupal/roleassign": "^2",
     "drupal/simple_oauth": "^5",
-    "drupal/tfa": "^2.0",
+    "drupal/tfa": "^2",
     "drush/drush": "^11"
   },
   "require-dev": {
