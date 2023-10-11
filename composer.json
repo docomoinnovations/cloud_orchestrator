@@ -119,7 +119,10 @@
   "require-dev": {
     "dmore/behat-chrome-extension": "*",
     "docomoinnovations/drupal-extension": "*",
-    "drupal/coder": "*"
+    "drupal/coder": "*",
+    "mglaman/drupal-check": "*",
+    "phpunit/phpunit": "*",
+    "phpspec/prophecy-phpunit": "*"
   },
   "autoload-dev": {
     "psr-4": {
