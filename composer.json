@@ -122,7 +122,8 @@
     "drupal/coder": "*",
     "mglaman/drupal-check": "*",
     "phpunit/phpunit": "*",
-    "phpspec/prophecy-phpunit": "*"
+    "phpspec/prophecy-phpunit": "*",
+    "symfony/phpunit-bridge": "*"
   },
   "autoload-dev": {
     "psr-4": {
