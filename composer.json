@@ -93,9 +93,9 @@
   "require": {
     "composer/installers": "^1",
     "cweagans/composer-patches": "^1",
-    "drupal/core-composer-scaffold": "10.0.x-dev",
-    "drupal/core-project-message": "10.0.x-dev",
-    "drupal/core-recommended": "10.0.x-dev",
+    "drupal/core-composer-scaffold": "^10.0.x-dev",
+    "drupal/core-project-message": "^10.0.x-dev",
+    "drupal/core-recommended": "^10.0.x-dev",
     "drupal/admin_toolbar": "^3",
     "drupal/cloud": "6.x-dev",
     "drupal/cloud_orchestrator": "dev-6.x",
