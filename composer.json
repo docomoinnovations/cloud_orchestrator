@@ -114,6 +114,7 @@
     "drupal/roleassign": "^2",
     "drupal/simple_oauth": "^5",
     "drupal/tfa": "^2",
+    "drupal/smtp": "^1",
     "drush/drush": "^11"
   },
   "require-dev": {
