@@ -113,6 +113,7 @@
     "drupal/real_aes": "^2", 
     "drupal/roleassign": "^2",
     "drupal/simple_oauth": "^5",
+    "drupal/smtp": "^1",
     "drupal/tfa": "^2",
     "drush/drush": "^11"
   },
