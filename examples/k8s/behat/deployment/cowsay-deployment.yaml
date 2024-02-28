@@ -17,4 +17,3 @@ spec:
       containers:
       - name: cowsay
         image: docomoinnovations/cloud_orchestrator:cowsay
-        restartPolicy: Never
