@@ -98,7 +98,7 @@
     "drupal/core-recommended": "^10.2.x-dev",
     "drupal/admin_toolbar": "^3",
     "drupal/cloud": "7.x-dev",
-    "drupal/cloud_orchestrator": "7.x-dev",
+    "drupal/cloud_orchestrator": "dev-7.x",
     "drupal/copyright_footer": "^3",
     "drupal/ctools": "^4",
     "drupal/facade": "^1",
