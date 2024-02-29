@@ -115,7 +115,7 @@
     "drupal/simple_oauth": "^5",
     "drupal/smtp": "^1",
     "drupal/tfa": "^2",
-    "drush/drush": "^11"
+    "drush/drush": "^12"
   },
   "require-dev": {
     "dmore/behat-chrome-extension": "*",
