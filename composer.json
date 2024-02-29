@@ -1,6 +1,6 @@
 {
   "name": "docomoinnovations/cloud_orchestrator",
-  "description": "Cloud orchestrator distribution by DOCOMO Innovations",
+  "description": "Cloud orchestrator distribution by DOCOMO Innovations, Inc.",
   "type": "drupal-profile",
   "license": "GPL-2.0-or-later",
   "minimum-stability": "dev",
@@ -21,10 +21,10 @@
       "type": "package",
       "package": {
         "name": "drupal/cloud_orchestrator",
-        "version": "dev-6.x",
+        "version": "dev-7.x",
         "type": "drupal-profile",
         "dist": {
-          "url": "https://ftp.drupal.org/files/projects/cloud_orchestrator-6.x-dev.zip",
+          "url": "https://ftp.drupal.org/files/projects/cloud_orchestrator-7.x-dev.zip",
           "type": "zip"
         }
       }
@@ -93,21 +93,21 @@
   "require": {
     "composer/installers": "^1",
     "cweagans/composer-patches": "^1",
-    "drupal/core-composer-scaffold": "^10.0.x-dev",
-    "drupal/core-project-message": "^10.0.x-dev",
-    "drupal/core-recommended": "^10.0.x-dev",
+    "drupal/core-composer-scaffold": "^10.2.x-dev",
+    "drupal/core-project-message": "^10.2.x-dev",
+    "drupal/core-recommended": "^10.2.x-dev",
     "drupal/admin_toolbar": "^3",
-    "drupal/cloud": "6.x-dev",
-    "drupal/cloud_orchestrator": "dev-6.x",
+    "drupal/cloud": "7.x-dev",
+    "drupal/cloud_orchestrator": "7.x-dev",
     "drupal/copyright_footer": "^3",
     "drupal/ctools": "^4",
-    "drupal/facade": "1.0.x-dev",
-    "drupal/ldap": "4.x-dev",
+    "drupal/facade": "^1",
+    "drupal/ldap": "^4",
     "drupal/login_destination": "^2.0@beta",
     "drupal/memcache": "^2",
     "drupal/module_filter": "^4",
     "drupal/module_permissions": "^3",
-    "drupal/openid_connect_daccount": "1.x-dev@dev",
+    "drupal/openid_connect_daccount": "^1",
     "drupal/password_policy": "^4",
     "drupal/queue_ui": "^3",
     "drupal/real_aes": "^2", 
