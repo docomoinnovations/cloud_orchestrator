@@ -93,9 +93,9 @@
   "require": {
     "composer/installers": "^1",
     "cweagans/composer-patches": "^1",
-    "drupal/core-composer-scaffold": "^10.2.x-dev",
-    "drupal/core-project-message": "^10.2.x-dev",
-    "drupal/core-recommended": "^10.2.x-dev",
+    "drupal/core-composer-scaffold": "^10.3.x-dev",
+    "drupal/core-project-message": "^10.3.x-dev",
+    "drupal/core-recommended": "^10.3.x-dev",
     "drupal/admin_toolbar": "^3",
     "drupal/cloud": "7.x-dev",
     "drupal/cloud_orchestrator": "dev-7.x",
@@ -121,6 +121,9 @@
     "docomoinnovations/drupal-extension": "*",
     "drupal/coder": "*",
     "mglaman/drupal-check": "*",
+    "mglaman/phpstan-drupal": "*",
+    "phpstan/extension-installer": "*",
+    "phpstan/phpstan-deprecation-rules": "*",
     "phpunit/phpunit": "*",
     "phpspec/prophecy-phpunit": "*",
     "symfony/phpunit-bridge": "*"
