@@ -21,10 +21,10 @@
       "type": "package",
       "package": {
         "name": "drupal/cloud_orchestrator",
-        "version": "6.3.0",
+        "version": "6.4.1",
         "type": "drupal-profile",
         "dist": {
-          "url": "https://ftp.drupal.org/files/projects/cloud_orchestrator-6.3.0.zip",
+          "url": "https://ftp.drupal.org/files/projects/cloud_orchestrator-6.4.1.zip",
           "type": "zip"
         }
       }
@@ -54,11 +54,6 @@
     "drupal-scaffold": {
       "locations": {
         "web-root": "docroot/"
-      }
-    },
-    "patches": {
-      "drupal/memcache": {
-        "Fixes an issue at https://www.drupal.org/i/3355505": "https://git.drupalcode.org/project/memcache/-/merge_requests/14.diff"
       }
     },
     "installer-paths": {
@@ -97,8 +92,8 @@
     "drupal/core-project-message": "^10.0.x-dev",
     "drupal/core-recommended": "^10.0.x-dev",
     "drupal/admin_toolbar": "^3",
-    "drupal/cloud": "6.3.0",
-    "drupal/cloud_orchestrator": "6.3.0",
+    "drupal/cloud": "6.4.1",
+    "drupal/cloud_orchestrator": "6.4.1",
     "drupal/copyright_footer": "^3",
     "drupal/ctools": "^4",
     "drupal/ldap": "4.x-dev",
