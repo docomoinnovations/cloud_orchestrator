@@ -21,10 +21,10 @@
       "type": "package",
       "package": {
         "name": "drupal/cloud_orchestrator",
-        "version": "dev-7.x",
+        "version": "dev-8.x",
         "type": "drupal-profile",
         "dist": {
-          "url": "https://ftp.drupal.org/files/projects/cloud_orchestrator-7.x-dev.zip",
+          "url": "https://ftp.drupal.org/files/projects/cloud_orchestrator-8.x-dev.zip",
           "type": "zip"
         }
       }
@@ -94,12 +94,12 @@
   "require": {
     "composer/installers": "^1",
     "cweagans/composer-patches": "^1",
-    "drupal/core-composer-scaffold": "^10.3.x-dev",
-    "drupal/core-project-message": "^10.3.x-dev",
-    "drupal/core-recommended": "^10.3.x-dev",
+    "drupal/core-composer-scaffold": "^10.3 || ^11",
+    "drupal/core-project-message": "^10.3 || ^11",
+    "drupal/core-recommended": "^10.3 ||  ^11",
     "drupal/admin_toolbar": "^3",
-    "drupal/cloud": "7.x-dev",
-    "drupal/cloud_orchestrator": "dev-7.x",
+    "drupal/cloud": "8.x-dev",
+    "drupal/cloud_orchestrator": "dev-8.x",
     "drupal/copyright_footer": "^3",
     "drupal/ctools": "^4",
     "drupal/ldap": "^4",
